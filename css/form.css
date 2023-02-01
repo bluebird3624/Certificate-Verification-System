@@ -1,0 +1,256 @@
+:root {
+	--form-width: 40rem;
+	--form-border-radius: 8px;
+	--col-gap: 2px;
+	--bg-color: #fff;
+	--border-color: #000;
+	--text-color: #111;
+	--label-color: #888;
+	--focus-bg-color: #fffae0;
+	--button-bg-color: #333;
+	--button-text-color: #fff;
+	--button-focus-bg-color: #000;
+}
+
+@layer grid-form {
+
+	ul {
+		inline-size: min(100% - 1px, var(--form-width));
+		margin-inline: auto;
+		overflow: hidden;
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--col-gap);
+		background-color: var(--border-color);
+		border: var(--col-gap) solid var(--border-color);
+		border-radius: var(--form-border-radius);
+	}
+
+	ul > * {
+		/*default item size is 2 columns*/
+		--basis: calc(var(--form-width) / 2 - (3 * var(--col-gap)));
+		position: relative;
+		flex: 1 0 var(--basis);
+		background-color: var(--bg-color);
+	}
+	
+	[col-1] {
+		/*add to <li> for full width single column*/
+		--basis: 100%;
+	}
+	
+	[col-3] {
+		/*add to <li> for 3 column*/
+		--basis: calc(var(--form-width) / 3 - (4 * var(--col-gap)));
+	}
+	
+	[col-4] {
+		/*add to <li> for 4 column*/
+		--basis: calc(var(--form-width) / 4 - (5 * var(--col-gap)));
+	}
+	
+	fieldset {
+		border: none;
+	}
+	
+	fieldset > ul {
+		inline-size: 100%;
+		border-width: 0;
+		border-top-width: var(--col-gap);
+		border-radius: 0;
+	}
+	
+	legend {
+		font-size: .875rem;
+		display: block;
+		padding: 1rem;
+		color: var(--label-color);
+	}
+	
+	label[toggle] {
+	display: flex;
+	align-items: center;
+	gap: .5rem;
+	block-size: 100%;
+	padding-inline: 1rem;
+	padding-block: 2rem;
+}
+
+	label[toggle] input {
+		flex-shrink: 0;
+	}
+
+	label[for] {
+		font-size: .875rem;
+		position: absolute;
+		inset: .5rem 1rem;
+		inline-size: max-content;
+		block-size: max-content;
+		color: var(--label-color)
+	}
+
+	:is(input, select, textarea):not([type="range"],[type="checkbox"],[type="radio"]) {
+		font-size: 1.125rem;
+		font-weight: 600;
+		block-size: 100%;
+		padding-inline: 1rem;
+		padding-block: 2rem;
+		padding-block-start: 2.5rem;
+		inline-size: 100%;
+		border: none;
+		background-color: var(--bg-color);
+	}
+
+	:is(input, select, textarea):not([type="rage"],[type="checkbox"],[type="radio"]):focus,
+	label[toggle]:focus-within {
+		outline: none;
+		background-color: var(--focus-bg-color);
+	}
+	
+	button {
+		padding-inline: 1rem;
+		padding-block: 2rem;
+		inline-size: 100%;
+		block-size: 100%;
+		border: none;
+		background-color: var(--button-bg-color);
+		color: var(--button-text-color);
+	}
+	
+	button:focus {
+		outline: none;
+		background-color: var(--button-focus-bg-color);
+	}
+	
+}
+
+
+
+
+@layer grid-form.base {
+	
+	*, *::after, *::before {
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box; 
+	}
+
+	html { 
+		block-size: 100%;
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+		text-rendering: optimizeSpeed;
+		-webkit-text-size-adjust: none;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+	body {
+		font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+		font-size: 1rem;
+		font-weight: 400;
+		min-block-size: 100%;
+		padding-block: 5vmin;
+		background-color:var(--bg-color);
+		color: var(--text-color);
+	}
+	
+	[role=list] {
+		list-style: none;
+	}
+	
+	input, button, textarea, select {
+		font: inherit;
+		font-size: inherit;
+		color: inherit;
+		letter-spacing: inherit;
+	}
+
+	textarea {
+		resize: vertical;
+	}
+
+
+	select {
+		appearance: none;
+		padding-inline-end: 1rem;
+		/* arrow icon */
+		background-image: 
+			conic-gradient(
+			from 45deg, 
+			transparent 0% 25%, 
+			transparent 0% 75%,
+			currentColor 0%
+			);
+		background-size: 12px 12px;
+		background-position: right 1rem top calc(50% + 4px);
+		background-repeat: no-repeat;
+	}
+	
+	button, 
+	button[type], 
+	input[type="button"], 
+	input[type="submit"], 
+	input[type="reset"] {
+		user-select: none;
+		-webkit-tap-highlight-color: transparent;
+		-webkit-touch-callout: none;
+		cursor: pointer;
+	}
+	
+	input:is([type="checkbox"],[type="radio"]) {
+		-webkit-appearance: none;
+		appearance: none;
+		inline-size: 1.5rem;
+		block-size: 1.5rem;
+		display: inline-grid;
+		place-content: center;
+		padding: 0;
+		border: 2px solid var(--border-color);
+	}
+
+	input:is([type="checkbox"],[type="radio"]):focus {
+		outline: none;
+	}
+
+	input:is([type="checkbox"],[type="radio"]):checked {
+		background-color: var(--border-color);
+	}
+
+	input:is([type="checkbox"],[type="radio"])::before {
+		content: "";
+		transform: scale(0);
+		transition: 120ms transform ease-in-out;
+	}
+
+	input:is([type="checkbox"],[type="radio"]):checked::before {
+		transform: scale(1);
+	}
+
+	input[type="checkbox"] {
+		border-radius: 4px;
+	}
+
+	input[type="checkbox"]::before {
+		inline-size: 1rem;
+		block-size: 1rem;
+		transform-origin: center center;
+		clip-path:polygon(16% 45%,0 64%,44% 100%,100% 22%,80% 8%,39% 65%);
+		background-color: var(--bg-color);
+	}
+
+	input[type="checkbox"]:checked::before {
+		transform: scale(.6);
+	}
+
+	input[type="radio"] {
+		border-radius: 100%;
+	}
+
+	input[type="radio"]::before {
+		inline-size: .5rem;
+		block-size: .5rem;
+		box-shadow: inset 1em 1em var(--bg-color);
+		border-radius: 100%;
+	}
+	
+}
