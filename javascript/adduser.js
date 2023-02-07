@@ -51,10 +51,10 @@ function checkemail()
             if(data.message == "true")
             {
                 word.setAttribute("style","background: rgb(241, 196, 196)");
-                emailp.setAttribute("style","display: block");
-                emailp.setAttribute("style","height: 1.4em");
-                emailp.setAttribute("style","font-size: small");
-                emailp.setAttribute("style","color: red");
+                messagep.setAttribute("style","display: block");
+                messagep.setAttribute("style","height: 1.4em");
+                messagep.setAttribute("style","font-size: small");
+                messagep.setAttribute("style","color: red");
             }
         }
     };
