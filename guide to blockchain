@@ -1,0 +1,17 @@
+There are several steps you need to follow to store a hash generated in PHP into a blockchain network:
+
+Choose a blockchain network: Choose a blockchain network that you would like to use for storage. Some popular blockchain networks include Ethereum, EOS, and Hyperledger.
+
+Set up a node: You need to set up a node in the chosen blockchain network. A node is a computer connected to the blockchain network that stores a copy of the blockchain and processes transactions.
+
+Connect to the blockchain network: You can connect to the blockchain network using a library or API provided by the network. For example, the Ethereum network provides a library called Web3.js that you can use to connect to the network.
+
+Create a smart contract: In a blockchain network, you can store data by creating a smart contract. A smart contract is a piece of code that runs on the blockchain network and can store and retrieve data. You can write a smart contract in a language such as Solidity for Ethereum, or C++ for EOS.
+
+Deploy the smart contract: After you have written the smart contract, you need to deploy it to the blockchain network. This will make it available for use and will create a unique address for the smart contract.
+
+Interact with the smart contract: You can interact with the smart contract using the blockchain network's library or API. You can use functions provided by the smart contract to store and retrieve data.
+
+Store the hash: Once you have connected to the blockchain network and deployed the smart contract, you can store the hash in the blockchain network by calling a function in the smart contract and passing the hash as an argument.
+
+In this way, you can store the hash generated in PHP in a blockchain network for secure and decentralized storage.

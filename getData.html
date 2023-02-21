@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="dataInput"> New name</label>
+    <input type="text" id="dataInput" name="dataInput">
+    <button onclick="uploadName()" >Update</button>
+    <button onclick="getName()" >Retreive</button>
+    <p id="message"></p>
+</body>
+</html>
+
+
+<!-- Include web3.js library -->
+<script src="javascript/web3.min.js"></script>
+
+<!-- Create a web3 instance -->
+<script>
+  const web3 = new Web3('http://localhost:7545');
+
+  // check that the web3 connection is working
+  web3.eth.getBlockNumber()
+    .then(blockNumber => console.log(`Latest block number: ${blockNumber}`))
+    .catch(err => console.error(err));
+
+    //setDefaults 
+    web3.eth.sendTransaction({
+        from: '0x1e0c11d18346ca1a0cd01CF39E6F4324690c5d78'
+    })
+
+
+    // Set the address of the contract and its ABI
+
+  const contractAddress = '0x7CAD2e48F0cC2aCfeBE269277FEF9F88FB198F91';
+
+  const contractABI =[
+			{
+				"inputs": [],
+				"name": "getName",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "newName",
+						"type": "string"
+					}
+				],
+				"name": "setName",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		];
+
+  // Create an instance of the contract
+  const contract = new web3.eth.Contract(contractABI, contractAddress);
+  // Call a function on the contract to get the value
+  function getName(){
+    contract.methods.getName().call()
+      .then(value =>document.getElementById('message').textContent = value)
+      .then(value => console.log(`Value: ${value}`))
+      .catch(err => console.error(err));
+
+    document.getElementById('message').textContent = value;
+  }
+
+    function uploadName() {
+        const dataInput = document.getElementById('dataInput').value;
+
+        contract.methods.setName(dataInput).send({ from: "0x1e0c11d18346ca1a0cd01CF39E6F4324690c5d78" })
+        .then((receipt) => {
+        console.log('Transaction receipt:', receipt);
+        })
+        .catch((error) => {
+        console.error('Transaction error:', error);
+        });
+    }
+
+
+</script>
+

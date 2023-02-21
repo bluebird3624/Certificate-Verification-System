@@ -106,12 +106,34 @@ function check_student_eligibility($conn)
     $conn->close();
 }
 
+function hashconst($salt, $institutionName, $acronym, $category, $type, $yearlyKey, $agentsKey, $year, $studentId, $studentName, $course, $gpa)
+{
+    $data = $institutionName . $acronym . $category . $type . $yearlyKey . $agentsKey . $year . $studentId . $studentName . $course . $gpa;
+    $data = $salt . $data;
+    $hash = hash('sha256', $data);
+    return $hash;
+}
+
 function hashkey($salt, $institutionName, $acronym, $category, $type, $yearlyKey, $agentsKey, $year, $studentId, $studentName, $course, $gpa)
 {
     $data = $institutionName . $acronym . $category . $type . $yearlyKey . $agentsKey . $year . $studentId . $studentName . $course . $gpa;
     $data = $salt . $data;
     $hash = password_hash($data, PASSWORD_BCRYPT);
     return $hash;
+}
+
+function verifyHash($data, $hash)
+{
+    if (password_verify($data, $hash)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function getCurrentYearNairobi() {
+    date_default_timezone_set('Africa/Nairobi'); // Set timezone to Nairobi
+    return date('Y'); // Get the current year
 }
 
 $salt = "random_salt_value";
@@ -127,5 +149,28 @@ $studentName = "John Doe";
 $course = "Computer Science";
 $gpa = 3.5;
 
-$hash = hashkey($salt, $institutionName, $acronym, $category, $type, $yearlyKey, $agentsKey, $year, $studentId, $studentName, $course, $gpa);
+$hash = hashconst($salt, $institutionName, $acronym, $category, $type, $yearlyKey, $agentsKey, $year, $studentId, $studentName, $course, $gpa);
 echo $hash;
+echo "</br>";
+
+$salt = "random_salt_value";
+$institutionName = "University of Technology";
+$acronym = "UT";
+$category = "public";
+$type = "university";
+$yearlyKey = "2020-2021";
+$agentsKey = "agent123";
+$year = 2021;
+$studentId = 1234567;
+$studentName = "John Doe";
+$course = "Computer Science";
+$gpa = 3.5;
+
+$data = $salt . $institutionName . $acronym . $category . $type . $yearlyKey . $agentsKey . $year . $studentId . $studentName . $course . $gpa;
+echo $hash2 = hashconst($salt, $institutionName, $acronym, $category, $type, $yearlyKey, $agentsKey, $year, $studentId, $studentName, $course, $gpa);
+
+if ($hash === $hash2) {
+    echo "The data matches the hash";
+} else {
+    echo "The data does not match the hash";
+}
