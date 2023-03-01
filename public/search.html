@@ -1,0 +1,603 @@
+
+
+<!DOCTYPE html>
+<lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Zoomplex</title>
+<meta name="description" content="">
+<meta name="" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" src="zoomplex.png">
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Expletus+Sans&display=swap');
+      html,body {
+  height: 90%;
+  width: 100%;
+}
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper h1 {
+  display: flex;
+  justify-content: center;
+  font-family: sans serif;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+header h1{
+  font-family: 'Expletus Sans';
+  letter-spacing: 10px;
+  margin: 5px;
+}
+
+.logo:hover{
+  text-decoration: none;
+}
+
+
+.logo:focus{
+  text-decoration: none;
+}
+
+input {
+  width: 500px;
+  height: 30px;
+  text-align: center;
+  font-weight: bold;
+  color: #000000;
+}
+
+.search_buttons {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+nav {
+  display: flex;
+  align-items: left;
+  padding: 5px;
+  height: 90px;
+  width: 100%;
+  background-color: #eee;
+}
+
+nav h3{
+  margin: 5px;
+}
+
+
+input#after_search{
+  display: flex;
+  align-items: center;
+  margin: 15px;
+  padding-left: 7px;
+  height: 35px;
+  font-size:20px;
+  width: 700px;
+}
+
+
+
+section{
+    padding-left: 160px;
+    padding-top: 30px;
+}
+
+.wiki_title{
+  font-size: 1.5em;
+}
+
+.wiki_title a{
+  color:#1717de;
+}
+
+.wiki_title a:visited{
+  color:purple;
+}
+
+.wiki_snippet{
+  width:500px;
+  padding-bottom: 15px;
+}
+
+.wiki_snippet_8{
+  padding-bottom:45px;
+}
+
+.search_buttons a{
+  width: 100px;
+}
+
+.btn-primary {
+    background-color: #eee;
+    border-color: #eee;
+    color: grey;
+    font-weight: bold;
+}
+
+.search_buttons a:hover{
+  color: black;
+  background-color: #eee;
+  border-color: #bfb4b4;
+}
+
+.error{
+  font-size:1.3em;
+}
+
+.after_search_container{
+  display: flex;
+  align-items: center;
+
+}
+
+.after_search_container span{
+  display: flex;
+  height: 35px;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  background-color:#3369E8;
+  margin-left: -15px;
+  color: white;
+}
+
+.after_search_container span i{
+  margin-left: 6px;
+}
+
+.after_search_container span:hover{
+  cursor:pointer;
+}
+@media (min-width:521px) and (max-width:720px){
+    input#after_search {
+  width: 700px;
+}
+
+    input#before_search{
+    width: 400px;
+  }
+
+  .wiki_snippet {
+    width: 350px;
+}
+
+  section{
+    padding-left: 35px;
+  }
+}
+
+@media only screen and (max-width:520px)  {
+
+  input#before_search{
+    width: 300px;
+  }
+
+  input#after_search{
+    width: 250px;
+  }
+
+  .wiki_snippet {
+    width: 350px;
+}
+
+  section{
+    padding-left: 20px;
+  }
+}
+
+@media only screen and (max-width:470px)  {
+
+  input#before_search{
+    width: 300px;
+    height: 3em;
+  }
+
+  input#after_search{
+    width: 160px;
+  }
+
+  .wiki_snippet {
+    width: 330px;
+}
+
+  section {
+    padding-left: 20px;
+  }
+}
+.footer .container-fluid {
+  max-width: 500px;
+}
+.funct:hover {
+  text-shadow: 4px gray;
+}
+.funct {
+  transition:0s;
+}
+.SearchResultContainer {
+  float: center;
+  background-color: #e4e7ed;
+  margin-top:0;
+  color:#48494d;
+}
+#h1 {
+  font-family: sans-serif;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}  
+#divButtons {
+  margin-top: 50px;
+  font-size: 22px;
+}
+#lucky {
+  margin-right: 30px;
+  background-color: #f5f2f2;
+  border-radius: 10px;
+  border: none;
+}
+#lucky:hover {
+  background-color: #a9a9a9;
+  color: #000000;
+}
+#random {
+  margin-right: 30px;
+  background-color: #f5f2f2;
+  border-radius: 10px;
+  border: none;
+}
+#random:hover {
+  background-color: #a9a9a9;
+  color: #000000;
+}
+#search {
+  background-color: #f5f2f2;
+  border-radius: 10px;
+  border: none;
+  margin-right: 30px;
+}
+#search:hover {
+  background-color: #a9a9a9;
+  color: #000000;
+}
+#top {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: sans-serif;
+  font-weight: bold;
+  width: 100%;
+}
+#top:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+#microphone {
+  border: none;
+  background: #ffffff;
+  color: #000000;
+}
+
+#mic-img {
+  width: 20px;
+  height: 20px;
+}
+#search2 {
+  border: none;
+  background-color: #ffffff;
+}
+#timestamp {
+	color: #006400;
+}
+#wordcount {
+	color: #006400;
+}
+#size {
+	color: #006400;
+}
+#page {
+	color: #006400;
+}
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+.tab button:hover {
+  background-color: #ddd;
+}
+
+.tab button.active {
+  background-color: #ccc;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+</style>
+</head>
+<body translate="false">
+<body id="body"><script src="/superhi.js"></script>
+<div class="hidden" id="searched_results_display">
+<header>
+<nav>
+<h1 style="font-family:sans-serif; font-size:49px; font-weight:bold;" id="h1"><span style="color:#EA4335;">Z</span><span style="color:#FBBC05;">o</span><span style="color:#34A853;">o</span><span style="color:#3369E8;">m</span><span style="color:#FBBC05;">p</span><span style="color:#34A853;">l</span><span style="color:#3369E8;">e</span><span style="color:#EA4335;">x</span></h1>
+<div class="after_search_container"> 
+<input type="search" placeholder="Re-search the web for..." id="after_search" spellcheck="true" name="searchq">
+</div>
+</nav>
+<div>
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'Articles')" id="defaultOpen">Articles</button>
+  <button class="tablinks" onclick="openCity(event, 'Images')">Images</button>
+  <button class="tablinks" onclick="openCity(event, 'Gifs')">GIFs</button>
+  <button class="tablinks" onclick="openCity(event, 'Maps')">Maps</button>
+  <button class="tablinks" onclick="openCity(event, 'Weather')">Weather</button>
+</div>
+
+<div id="Articles" class="tabcontent">
+<section class="wiki_results">
+</section>
+</div>
+
+<div id="Images" class="tabcontent">
+  <h3>Images coming soon!</h3>
+</div>
+
+<div id="Gifs" class="tabcontent">
+<h3>GIFs coming soon!</h3>
+</div>  
+
+<div id="Maps" class="tabcontent">
+<div id="map">
+</div>
+</div>  
+</header>
+<button onclick="scrollToTop()" id="top">Back to Top</button>
+</div>
+<div class="wrapper">
+<div class="search_body">
+<h1 style="font-family:sans-serif; font-size:49px" id="h1"><span style="color:#EA4335;">Z</span><span style="color:#FBBC05;">o</span><span style="color:#34A853;">o</span><span style="color:#3369E8;">m</span><span style="color:#FBBC05;">p</span><span style="color:#34A853;">l</span><span style="color:#3369E8;">e</span><span style="color:#EA4335;">x</span></h1>
+<div id="div" class="div">
+<button id="search2"><i class="fa fa-search"></i></button>  
+<input name="searchq" type="search" placeholder="Search the web for..." id="before_search" spellcheck="true" autofocus>
+<button id="microphone" onclick="micType()"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAABC1BMVEX///8eiOXlOTX7wC1Mr1AWhuVOnurlNzOh0aNDrEdGrUqKyIwAgeT/9+X7vAznREBvvXLkLCfkJyLkLilFslEGg+TkMi77vh798fH/+/vrcnDyp6XkIx3tgX/rMTTh7fu31fVuqeyQv/DP4/kAfePv9v3//fb8yE3oUk///vnwmJf82o/94KL3ycj0t7bnS0j40tL64OCNhUZ5r+w8k+eDuO+YxPKw0vX+7Mb+8dZKmunmPzr8zmzi7vv75OP95rXqZGH7wzz7y1rxn57x+P381X/96LzwiE/ui4nse3n7yVXwjl7pX138yCzxk27//Oz2v77aWUzXQjVcqE93lEqEi0eAjkiWvISw2bIZvAoIAAAFtElEQVR4nO2cbVvaSBSGITRG3RQ2ySa8S8CqiEVgBXyrVqttoa2ru+2+/P9fsglFyUwGElAyE67n/uKHSbzOfZ0zZybRSSIBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMugYteOqtXqUc2u8A5lGVRqXVM1TVmWTednt7dqkttrqiknJziaa9u8g3pBdqpvvHpjyTfVHd6BvRR20vT5uZhJm3doL0NfZfq5qH3ewb0EvemCjmKPd3jPZ0YGVyOL27MFHUWbd4jPYyfAz2mpcrw7apXdRb2YVd5BPofAGh3VaZyX/jX/Qs+o0zXeYS5OJbhGR3Ua3yT2QhrGd1HshilSp0y7vANdlIswfcZFveAd6oIchzU0j3mHuiC1cNPQMazxDnVBjsJNQ2cixnXRr668Yaj1fmQY1zUfhjAUHxjCUHxgCEPxgSEMxQeGMBQfGMJQfGAIQ/GBIQzFB4YwFB8YwlB8YAhD8YEhDMUHhjAUHxjCUHxgCEPxgSEMxWclDHdfE5CDK2F4kvaSJQcX/j/vVsaD1Y5Oh8FpOuXhmhw8Cn0a4Yi4Ly9ZyoSSSIapXWKwH9qQPCqbUxRpQqkTpZCP16ThPTFohz4VZBP3dQzC8DJCHz+7hGH2lBjcCZ1D8qBsW/cIKnouSiEfu0QK0yfk6FnIs2tn5G1FzWt4ztdwf4/I4VtyNOREpI89lS2vYT0fnQ6Ld1mv4Tty8EIOlUSTPJyXr3unoVWI0IbFgdcwtbdPjoZaL+jD3Jea19BoRCfD5D1hmKV2NaHOWKrUp2qIaSjpD9HJMHlNGlITMVELVvSdAr4ipqHGdzl0muk10U0/0OOBR4F9h4AvS94UKi3OjYZqNak0VaaJSoCh7Duq3jC8htwbjW8iHtDjtjrT0f/hD2JDI2mHkVjMgtq3pffpC2bt3WTVd8aZ7DOKznfPNoJY8/29JpHYTk7Loizb9MX5DJFCpRWFQgBviTKlny9cLs7Ylap2/Z80uyFSKGnFKBQCuCfLNPuRcU3f9C39sqkyzqhfkrNQKvHdlI4hu2kqfcq4ZqeW9OZRltVkj/XlnYJFCArQSV1OyCSmrn3NxuXWrnZV1XRR1WT1mPlloUNiLXRS2Fxu6GH5Qhoy69TltmL3a71a367csi+ga1SpLy3m+fhE9Zr0+8V+T75O1qik818Mx5ALhpPFk+B7GBQMUlCIpeIn9ExMpVjdJoiyTgpKJWFSmEh8oOo0dTd/l2/QgpY4KaSfoRzBz3M/9AyoNuqkkO+LUgpyY3P3eUux5mr0+SGdQUkbLCvYxfjiUbz7KinOo+scG65cXaMFlYwQ25kJnjq9+7o1ClEvhH14bSqWT1CUxX7Cp6d++lPQwTgP9Y4lVy4ptKCk834BxeAgPSnRp0QUghvO4bnh85OsbxFEPDejHfjdH1vE205jMPsR9qGu+xMoWZxfdE9hfy/rClLzySgNp3b9/GFG981A9yaL9wu2Kexep2jBUUJKrUbbn5Ncs2yw8uf2KOG6zCP3ZIl6E9kqFJudR81cp9m4knSLebEze3m/BJ5Brs7oGuPC03RDyrTq9Xoroxi6MUVPcEFnZl35lm5P7BNmXGQIW6JjhozFbQ4sSajdKJOb5yhqdQHejwbSlqZNxiCUUpl38OHIDdmrQBCGItAjbwAP5zMaztQEFuJQoY/kB6WpywHbTzOEXiQYXA41I7Sjoik3vANegE7Z0kI5KrrUEHKnHcxlMVMKSqRilTLFmPqNaA+s6Ts0RbF0bSj6HiaYduObpGsWtVVTLEPXWsMm9z/Tvwy5drH851/S1gTt/Gpw2FkRvTHrm9+///j79xH//Ph3teRGrG+8evXbIxu/8A5nCbiGT2zCMI7AMP7AMP7AMP7AMP7AMP7AMP7AMP7AMP6sb2xOWMm3GP/96mWddzgAAAAAAAAAAAAAAAAAAAAAAAAAAACAleR/SNuIcdW7aR4AAAAASUVORK5CYII=" id="mic-img"></button>
+</div>
+<div class="divButtons" id="divButtons">
+<center>
+<button id="search">Search</button><button id="random" onclick="randomSearch()">Random</button>
+</center>
+</div>
+</div>
+</div>
+
+</body>
+<style>
+#before_search {
+  border-radius:25px;
+  border:none;
+}
+#before_search:focus {
+  border: #ffffff;
+}
+#div {
+  border: 1px solid grey;
+  border-radius: 25px;
+}
+#div:hover {
+    border-radius:25px;
+    border:1px solid grey;
+    box-shadow: 0px 0px 5px lightgrey, 0 0 5px lightgrey, 0 0 5px lightgrey;
+}
+</style>
+
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script id="rendered-js">  
+      $(document).ready(function() {
+
+  function checkInput() {
+    if ($('#before_search').val() == "") {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  $('#search').click(function() {
+    if (checkInput()) {
+      search();
+    }
+  });
+
+  $('#random').click(function() {
+    if (checkInput()) {
+      search();
+    }
+  }); 
+
+    $('#search2').click(function() {
+    if (checkInput()) {
+      search();
+    }
+  }); 
+  $(document).keydown(function(e) {
+    if (e.which == 13) {
+      if (checkInput()) {
+        if ($('#searched_results_display').hasClass('hidden')) {
+          search();
+        } else {
+          var keyword = $('#after_search').val();
+          getWikiData(keyword);
+        }
+
+      }
+
+    } else {
+      if ($('.wrapper').hasClass('hidden')) {
+
+        var keyword = $('#after_search').val();
+        getWikiData(keyword);
+      }
+    }
+  });
+   
+  function search() {
+    var keyword = $('#before_search').val();
+    $('#after_search').val(keyword);
+    $('.wrapper').addClass('hidden');
+    $('#searched_results_display').removeClass('hidden');
+    getWikiData(keyword);
+  }
+
+  function getWikiData(keyword) {
+    $.ajax({
+      url: "https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=" + keyword + "&prop=info&inprop=url&utf8=&format=json",
+      dataType: "jsonp",
+      success: function(wikiResponse) {
+        if (wikiResponse.query.searchinfo.totalhits == 0) {
+          $('.wiki_results').html("");
+          $('.wiki_results').append("<div class='error'><div>There are no results for the search <b>" + keyword + "</b>. </div>" + "<br>" + "<div>Here are things that might help:</div>" + "<br>" + "<ul><li>Are your words spelled correctly?</li><li>Try different keywords</li><li>Try using more general keywords</li></ul></div>");
+        } else {
+          showResults(wikiResponse);
+        }
+
+      },
+      error: function() {
+        
+      }
+    });
+  }
+
+
+  function showResults(wikiResponse) {
+    console.log(wikiResponse);
+    $('.wiki_results').html("");
+
+    for (var i = 0; i < 10; i++) {
+      var timestamp = wikiResponse.query.search[i].timestamp;
+      var wordcount = wikiResponse.query.search[i].wordcount;
+      var size = wikiResponse.query.search[i].size;
+      var title = wikiResponse.query.search[i].title;
+      var pageid = wikiResponse.query.search[i].pageid;
+      var url = title.replace(/\s/g, "_");
+      $('.wiki_results').append("<div class='wiki_timestamp wiki_timestamp_' id='timestamp'>" + timestamp + "</div>" + "<div class='wiki_wordcount wiki_wordcount_' id='wordcount'>" + wordcount + " words in this article</div>" + "<div id='page'>Page id: " + pageid + "</div>" + "<div class='wiki_size wiki_size_' id='size'>" + size + "KB</div>" + "<div class='wiki_title wiki_title_" + i + "'></div>" + "<p style='color:#808080;'>https://en.wikipedia.org/wiki/" + url + "</p>" + "<div class='wiki_snippet wiki_snippet_" + i + "'></div>");
+    }
+
+    for (var j = 0; j < 10; j++) {
+      var title = wikiResponse.query.search[j].title;
+      var url = title.replace(/\s/g, "_");
+      var snippet = wikiResponse.query.search[j].snippet;
+      $(".wiki_title_" + j + "").html("<a href='https://en.wikipedia.org/wiki/" + url + "' target='_blank'>" + title + "</a>");
+      $(".wiki_snippet_" + j + "").html(snippet);
+    }
+
+  }
+
+  
+  $('.after_search_container span').click(function() {
+    if ($('#after_search').val() == "") {
+    } else {
+      var keyword = $('#after_search').val();
+      getWikiData(keyword);
+    }
+  });
+
+});
+
+function randomSearch() {
+var item = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua & Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia & Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Cayman Islands","Central Arfrican Republic","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cuba","Curacao","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guam","Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kiribati","Kosovo","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Myanmar","Namibia","Nauro","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","North Korea","Norway","Oman","Pakistan","Palau","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre & Miquelon","Samoa","San Marino","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Korea","South Sudan","Spain","Sri Lanka","St Kitts & Nevis","St Lucia","St Vincent","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad & Tobago","Tunisia","Turkey","Turkmenistan","Turks & Caicos","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States of America","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe", "Aardvark ", "Aardwolf ", "Abyssinian ", "Addax", "Adelie Penguin", "Affenpinscher", "Afghan Hound", "African Bullfrog", "African Bush Elephant", "African Civet", "African Clawed Frog", "African Forest Elephant", "African Grey Parrot", "African Palm Civet", "African Penguin", "African Tree Toad", "African Wild Dog", "Aidi", "Ainu", "Airedale Terrier", "Airedoodle", "Akbash", "Akita", "Akita Shepherd", "Alabai", "Alaskan Husky", "Alaskan Klee Kai", "Alaskan Malamute", "Alaskan Shepherd", "Albacore Tuna", "Albatross", "Aldabra Giant Tortoise", "Alligator", "Alligator Gar", "Alpaca", "Alpine Dachsbracke", "Alpine Goat", "Alusky", "Amazon Parrot", "Amazon River Dolphin (Pink Dolphin)", "Ambrosia Beetle", "American Alsatian", "American Bulldog", "American Cocker Spaniel", "American Cockroach", "American Coonhound", "American Eskimo Dog", "American Foxhound", "American Hairless Terrier", "American Leopard Hound", "American Pit Bull Terrier", "American Pygmy Goat", "American Robin", "American Staffordshire Terrier", "American Toad", "American Water Spaniel", "Amur Leopard", "Anatolian Shepherd Dog", "Anchovies", "Angelfish", "Anglerfish", "Angora Goat", "Ant", "Antarctic scale worm", "Anteater", "Antelope", "Appenzeller Dog", "Apple Head Chihuahua", "Arapaima", "Arctic Fox", "Arctic Hare", "Arctic Wolf", "Arizona Bark Scorpion", "Armadillo", "Armyworm", "Asian Elephant", "Asian Giant Hornet", "Asian Palm Civet", "Asiatic Black Bear", "Aurochs", "Aussiedoodle", "Aussiedor", "Australian Bulldog", "Australian Cattle Dog", "Australian Gecko", "Australian Kelpie Dog", "Australian Labradoodle", "Australian Mist", "Australian Retriever", "Australian Shepherd", "Australian Terrier", "Avocet", "Axolotl", "Aye Aye", "Babirusa", "Baboon", "Bactrian Camel", "Badger", "Baiji", "Bald Eagle", "Baleen Whale", "Balinese", "Balkan Lynx", "Banana Spider", "Banded Palm Civet", "Bandicoot", "Banjo Catfish", "Barb", "Barbet", "Barn Owl", "Barn Swallow", "Barnacle", "Barracuda", "Barramundi Fish", "Barred Owl", "Basenji Dog", "Basking Shark", "Bassador", "Basset Fauve de Bretagne", "Basset Hound", "Bassetoodle", "Bat", "Bavarian Mountain Hound", "Bea-Tzu", "Beabull", "Beagador", "Beagle", "Beagle Shepherd", "Beaglier", "Beago", "Bear", "Bearded Collie", "Bearded Dragon", "Beaski", "Beauceron", "Beaver", "Bed Bugs", "Bedlington Terrier", "Bee", "Beefalo", "Beetle", "Belgian Shepherd", "Belgian Tervuren", "Beluga Sturgeon", "Bengal Tiger", "Bergamasco", "Berger Picard", "Bernedoodle", "Bernese Mountain Dog", "Bernese Shepherd", "Bichir", "Bichon Frise", "Bichpoo", "Biewer Terrier", "Bighorn Sheep", "Bilby", "Binturong", "Bird", "Bird Of Paradise", "Birman", "Biscuit Beetle", "Bison", "Black And Tan Coonhound", "Black Marlin", "Black Rhinoceros", "Black Russian Terrier", "Black Wasp", "Black Widow Spider", "Black-Footed Ferret", "Blackpoll Warbler", "Blister Beetle", "Blobfish", "Bloodhound", "Blue Belly Lizard", "Blue grosbeak", "Blue Iguana", "Blue Jay", "Blue Lacy Dog", "Blue Picardy Spaniel", "Blue Shark", "Blue Whale", "Blue-Ringed Octopus", "Bluefin Tuna", "Bluetick Coonhound", "Bobcat", "Bobolink", "Boggle", "Boglen Terrier", "Bolognese Dog", "Bombay", "Bongo", "Bonito Fish", "Bonnethead Shark", "Bonobo", "Booby", "Borador", "Border Collie", "Border Terrier", "Bordoodle", "Borkie", "Bornean Orang-utan", "Borneo Elephant", "Boston Terrier", "Bottlenose Dolphin", "Bouvier Des Flandres", "Bowfin", "Bowhead Whale", "Box Turtle", "Boxador", "Boxer Dog", "Boxerdoodle", "Boxsky", "Boxweiler", "Boykin Spaniel", "Brazilian Terrier", "British Timber", "Brittany", "Brookesia Micra", "Brown Bear", "Brown Hyena", "Brug", "Brussels Griffon", "Budgerigar", "Buffalo", "Bull Shark", "Bull Terrier", "Bulldog", "Bullfrog", "Bullmastiff", "Bumblebee", "Burmese", "Burmese Python", "Burrowing Frog", "Burrowing Owl", "Bush Baby", "Butterfly", "Butterfly Fish", "Cactus Mouse", "Caecilian", "Caiman", "Caiman Lizard", "Cairn Terrier", "Camel", "Camel Cricket", "Camel Spider", "Canaan Dog", "Canada Lynx", "Canadian Eskimo Dog", "Canadian Horse", "Cane Corso", "Cape Lion", "Capybara", "Caracal", "Caribou", "Carolina Dog", "Carolina Parakeet", "Carp", "Carpenter Ant", "Cashmere Goat", "Cassowary", "Cat", "Catahoula Leopard", "Catalan Sheepdog", "Caterpillar", "Catfish", "Cava Tzu", "Cavador", "Cavalier King Charles Spaniel", "Cavapoo", "Centipede", "Cesky Fousek", "Cesky Terrier", "Chameleon", "Chamois", "Chartreux", "Cheagle", "Cheetah", "Chesapeake Bay Retriever", "Chickadee", "Chicken", "Chihuahua", "Chimaera", "Chimpanzee", "Chinchilla", "Chinese Alligator", "Chinese Crested Dog", "Chinese Geese", "Chinese Paddlefish", "Chinese Shar-Pei", "Chinook", "Chinstrap Penguin", "Chipmunk", "Chipoo", "Chiweenie", "Chorkie", "Chow Chow", "Chow Shepherd", "Christmas Island Red Crab", "Cicada", "Cichlid", "Clouded Leopard", "Clownfish", "Clumber Spaniel", "Coati", "Cockalier", "Cockapoo", "Cockatiel", "Cockatoo", "Cocker Spaniel", "Cockroach", "Codfish", "Coelacanth", "Collared Peccary", "Collie", "Colossal Squid", "Common Buzzard", "Common Frog", "Common Furniture Beetle", "Common House Spider", "Common Loon", "Common Raven", "Common Toad", "Cookiecutter Shark", "Cooper’s Hawk", "Coral", "Corgidor", "Corgipoo", "Corkie", "Corman Shepherd", "Corn Rex Cat (Cornish Rex)", "Coton de Tulear", "Cotton-top Tamarin", "Cougar", "Cow", "Coyote", "Crab", "Crab Spider", "Crab-Eating Macaque", "Crabeater Seal", "Crane", "Crappie Fish", "Crested Penguin", "Cricket", "Crocodile", "Cross Fox", "Cross River Gorilla", "Crow", "Cuckoo", "Curly Coated Retriever", "Cuscus", "Cuttlefish", "Czechoslovakian Wolfdog", "Dachsador", "Dachshund", "Dalmadoodle", "Dalmador", "Dalmatian", "Dapple Dachshund", "Darwin’s fox", "Darwin’s Frog", "Deathwatch Beetle", "Deer", "Deer Head Chihuahua", "Desert Locust", "Desert Rain Frog", "Desert Tortoise", "Deutsche Bracke", "Devils Coach Horse Beetle", "Devon Rex", "Dhole", "Dik-Dik", "Dingo", "Discus", "Doberman Pinscher", "Dodo", "Dog", "Dogo Argentino", "Dogue De Bordeaux", "Dolphin", "Donkey", "Dorgi", "Dorkie", "Dormouse", "Double Doodle", "Douc", "Doxiepoo", "Doxle", "Draco volans", "Dragonfish", "Dragonfly", "Drever", "Drum Fish", "Duck", "Dugong", "Dung Beetle", "Dunker", "Dusky Dolphin", "Dwarf Crocodile", "Eagle", "Earthworm", "Earwig", "Eastern Bluebird", "Eastern Fence Lizard", "Eastern Gorilla", "Eastern Lowland Gorilla", "Eastern Phoebe", "Echidna", "Edible Frog", "Eel", "Egyptian Mau", "Electric Eel", "Elephant", "Elephant Seal", "Elephant Shrew", "Elk", "Emperor Penguin", "Emperor Tamarin", "Emu", "English Cocker Spaniel", "English Cream Golden Retriever", "English Foxhound", "English Pointer", "English Setter", "English Shepherd", "English Springer Spaniel", "Entlebucher Mountain Dog", "Epagneul Pont Audemer", "Ermine", "Eskimo Dog", "Eskipoo", "Estrela Mountain Dog", "Eurasian Nuthatch", "Falcon", "Fallow deer", "False Killer Whale", "False Widow Spider", "Fangtooth", "Feist", "Fennec Fox", "Ferret", "Ferruginous Hawk", "Fiddler Crab", "Field Spaniel", "Fila Brasileiro", "Fin Whale", "Finnish Spitz", "Fire salamander", "Fire-Bellied Toad", "Firefly", "Fish", "Fisher Cat", "Fishing Cat", "Flamingo", "Flat-Coated Retriever", "Flea", "Florida Gar", "Florida Panther", "Flounder", "Flowerhorn Fish", "Fluke Fish (summer flounder)", "Fly", "Flying Fish", "Flying Lemur", "Flying Squirrel", "Formosan Mountain Dog", "Fossa", "Fox", "Fox Terrier", "French Bulldog", "Frenchton", "Frengle", "Frigatebird", "Frilled Lizard", "Frilled Shark", "Frog", "Frogfish", "Fruit Bat", "Fruit Fly", "Fur Seal", "Galapagos Penguin", "Galapagos Tortoise", "Gar", "Garden Eel", "Gazelle", "Gecko", "Genet", "Gentoo Penguin", "Geoffroys Tamarin", "Gerberian Shepsky", "Gerbil", "German Pinscher", "German Shepherd Guide", "German Sheppit", "German Sheprador", "German Shorthaired Pointer", "German Spitz", "Gharial", "Ghost Crab", "Giant African Land Snail", "Giant Armadillo", "Giant Clam", "Giant Panda Bear", "Giant Salamander", "Giant Schnauzer", "Giant Schnoodle", "Gibbon", "Gila Monster", "Giraffe", "Glass Frog", "Glass Lizard", "Glechon", "Glen Of Imaal Terrier", "Glow Worm", "Gnat", "Goat", "Goberian", "Goblin Shark", "Goldador", "Golden Dox", "Golden Lion Tamarin", "Golden Masked Owl", "Golden Newfie", "Golden Oriole", "Golden Pyrenees", "Golden Retriever", "Golden Saint", "Golden Shepherd", "Golden-Crowned Flying Fox", "Goldendoodle", "Goldfish", "Goliath Frog", "Goose", "Gopher", "Gopher Tortoise", "Gordon Setter", "Gorilla", "Gouldian Finch", "Grasshopper", "Grasshopper Mouse", "Gray Fox", "Gray Tree Frog", "Great Blue Heron", "Great Crested Flycatcher", "Great Dane", "Great Danoodle", "Great Pyrenees", "Great White Shark", "Greater Swiss Mountain Dog", "Green Anole", "Green Bee-Eater", "Green Frog", "Green Tree Frog", "Greenland Dog", "Greenland Shark", "Grey Mouse Lemur", "Grey Reef Shark", "Grey Seal", "Greyhound", "Griffonshire", "Grizzly Bear", "Groenendael", "Groundhog (Woodchuck)", "Grouse", "Guinea Fowl", "Guinea Pig", "Guppy", "Haddock", "Hagfish", "Hammerhead Shark", "Hamster", "Harbor Seal", "Hardhead Catfish", "Hare", "Harp Seal", "Harpy Eagle", "Harrier", "Harris Hawk", "Havanese", "Havapoo", "Havashire", "Hawaiian Crow", "Hawaiian Monk Seal", "Hedgehog", "Hercules Beetle", "Hermit Crab", "Heron", "Herring", "Highland Cattle", "Himalayan", "Hippopotamus", "Hoary Bat", "Hokkaido", "Honduran White Bat", "Honey Badger", "Honey Bee", "Hooded Seal", "Hoopoe", "Horgi", "Horn Shark", "Hornbill", "Horned Frog", "Horned Lizard", "Horse", "Horsefly", "Horseshoe Crab", "House Finch", "House wren", "Housefly", "Howler Monkey", "Human", "Humboldt Penguin", "Humboldt Squid", "Hummingbird", "Humpback Whale", "Huntaway", "Huntsman Spider", "Huskador", "Huskita", "Husky", "Husky Jack", "Huskydoodle", "Hyena", "Ibex", "Ibis", "Ibizan Hound", "Icelandic Sheepdog", "Iguana", "Immortal Jellyfish", "Impala", "Imperial Moth", "Indian Elephant", "Indian Giant Squirrel", "Indian Palm Squirrel", "Indian Rhinoceros", "Indian Star Tortoise", "Indochinese Tiger", "Indri", "Insects", "Irish Doodle", "Irish Setter", "Irish Terrier", "Irish Water Spaniel", "Irish WolfHound", "Italian Greyhound", "Ivory-billed woodpecker", "Jacana", "Jack Russell", "Jackabee", "Jackal", "Jackdaw", "Jackson’s Chameleon", "Jaguar", "Jaguarundi Cat", "Japanese Beetle", "Japanese Chin", "Japanese Macaque", "Japanese Spitz", "Japanese Squirrel", "Japanese Terrier", "Javan Rhinoceros", "Javanese", "Jellyfish", "Jerboa", "Joro Spider", "Jumping Spider", "Kai Ken", "Kakapo", "Kangal", "Kangaroo", "Kangaroo Rat", "Keel-Billed Toucan", "Keeshond", "Kerry Blue Terrier", "Key Deer", "Kiko Goat", "Killer Whale", "Kinder Goat", "King Cobra", "King Crab", "King Penguin", "King Shepherd", "Kingfisher", "Kinkajou", "Kishu", "Kiwi", "Koala", "Kodkod", "Koi Fish", "Komodo Dragon", "Kooikerhondje", "Kookaburra", "Koolie", "Krill", "Kudu", "Kuvasz", "Labahoula", "Labmaraner", "Labradane", "Labradoodle", "Labrador Retriever", "Labraheeler", "Ladybug", "Lakeland Terrier", "LaMancha Goat", "Lamprey", "Lancashire Heeler", "Lapponian Herder", "Leaf-Tailed Gecko", "Lemming", "Lemur", "Leonberger", "Leopard", "Leopard Cat", "Leopard Frog", "Leopard Gecko", "Leopard Seal", "Leopard Tortoise", "Lhasa Apso", "Lhasapoo", "Liger", "Lion", "Lion’s Mane Jellyfish", "Lionfish", "Little Brown Bat", "Little Penguin", "Lizard", "Llama", "Loach", "Lobster", "Locust", "Long-Eared Owl", "Long-Haired Rottweiler", "Long-Tailed Tit", "Longnose Gar", "Lorikeet", "Lowchen", "Lungfish", "Lynx", "Lyrebird", "Macaroni Penguin", "Macaw", "Mackenzie Wolf", "Magellanic Penguin", "Maggot", "Magpie", "Maine Coon", "Malayan Civet", "Malayan Tiger", "Mallard", "Malteagle", "Maltese", "Maltese Shih Tzu", "Maltipoo", "Man of War Jellyfish", "Manatee", "Manchester Terrier", "Mandrill", "Maned Wolf", "Manta Ray", "Mantella Frog", "Marabou Stork", "Marble Fox", "Marine Iguana", "Marine Toad", "Markhor", "Marmot", "Marsh Frog", "Masked Palm Civet", "Mastador", "Mastiff", "Mayfly", "Meagle", "Mealybug", "Meerkat", "Megalodon", "Megamouth Shark", "Mekong Giant Catfish", "Mexican Alligator Lizard", "Mexican Free-Tailed Bat", "Mexican Mole Lizard", "Miki", "Milkfish", "Millipede", "Mini Labradoodle", "Miniature Bull Terrier", "Miniature Husky", "Miniature Pinscher", "Mink", "Minke Whale", "Mississippi Kite", "Mole", "Mole Cricket", "Molly", "Monarch Butterfly", "Mongoose", "Mongrel", "Monitor Lizard", "Monkey", "Monkfish", "Monte Iberia Eleuth", "Moorhen", "Moose", "Moray Eel", "Morkie", "Moscow Watchdog", "Mosquito", "Moth", "Mountain Bluebird", "Mountain Cur", "Mountain Feist", "Mountain Gorilla", "Mountain Lion", "Mourning Dove", "Mouse", "Mudi", "Mudpuppy", "Mule", "Muntjac", "Muskox", "Muskrat", "Myna Bird", "Naked Mole Rat", "Narwhal", "Neanderthal", "Neapolitan Mastiff", "Nebelung", "Newfoundland", "Newfypoo", "Newt", "Nicobar pigeon", "Nigerian Goat", "Nightingale", "Nile Crocodile", "No See Ums", "Norfolk Terrier", "North American Black Bear", "Northern Alligator Lizard", "Northern Cardinal", "Northern Fur Seal", "Northern Inuit Dog", "Norwegian Buhund", "Norwegian Elkhound", "Norwegian Forest", "Norwegian Lundehund", "Norwich Terrier", "Nova Scotia Duck Tolling Retriever", "Nubian Goat", "Numbat", "Nurse Shark", "Ocelot", "Octopus", "Okapi", "Old English Sheepdog", "Olm", "Opossum", "Orangutan", "Orb Weaver", "Oscar Fish", "Ostrich", "Otter", "Otterhound", "Oyster", "Oyster Toadfish", "Animals that start with P", "Paddlefish", "Pademelon", "Painted Turtle", "Pangolin", "Panther", "Papillon", "Parakeet", "Parrot", "Parrotlet", "Parson Russell Terrier", "Patas Monkey", "Patterdale Terrier", "Peacock", "Peacock Butterfly", "Peacock Spider", "Peagle", "Peekapoo", "Pekingese", "Pelican", "Pembroke Welsh Corgi", "Penguin", "Pere Davids Deer", "Peregrine Falcon", "Perro De Presa Canario", "Persian", "Peruvian Inca Orchid", "Petit Basset Griffon Vendéen", "Petite Goldendoodle", "Pheasant", "Pied Tamarin", "Pig", "Pigeon", "Pika", "Pike Fish", "Pileated Woodpecker", "Pine Marten", "Pink Fairy Armadillo", "Piranha", "Pit Bull", "Pitador", "Pitsky", "Platypus", "Pocket Beagle", "Pocket Pitbull", "Pointer", "Poison Dart Frog", "Polar Bear", "Polish Lowland Sheepdog", "Polyphemus moth", "Pomapoo", "Pomchi", "Pomeagle", "Pomeranian", "Pomsky", "Pond Skater", "Poochon", "Poodle", "Poogle", "Pool Frog", "Porbeagle Shark", "Porcupine", "Porpoise", "Possum", "Potoroo", "Prairie Dog", "Prairie Rattlesnake", "Prawn", "Praying Mantis", "Proboscis Monkey", "Pronghorn", "Pudelpointer", "Pufferfish", "Puffin", "Pug", "Pugapoo", "Puggle", "Pugshire", "Puma", "Pumi", "Purple Emperor Butterfly", "Purple Finch", "Puss Moth", "Pygmy Hippopotamus", "Pygmy Marmoset (Finger Monkey)", "Pygora Goat", "Pyrador", "Pyredoodle", "", "Animals that start with Q", "Quagga", "Quail", "Quetzal", "Quokka", "Quoll", "Animals that start with R", "Rabbit", "Raccoon", "Raccoon Dog", "Radiated Tortoise", "Ragamuffin", "Ragdoll", "Raggle", "Rat", "Rat Terrier", "Rattlesnake", "Red Finch", "Red Fox", "Red Knee Tarantula", "Red Panda", "Red Squirrel", "Red Wolf", "Red-handed Tamarin", "Red-winged blackbird", "Redback Spider", "Redbone Coonhound", "Reef Shark", "Reindeer", "Rhinoceros", "Ringed Kingfisher", "River Otter", "River Turtle", "Robin", "Rock Crab", "Rock Hyrax", "Rockfish", "Rockhopper Penguin", "Rodents", "Roe Deer", "Rooster", "Rose-breasted Grosbeak", "Roseate Spoonbill", "Rottsky", "Rottweiler", "Royal Penguin", "Ruby-Throated Hummingbird", "Russell Terrier", "Russian Bear Dog", "Russian Blue", "Russian Tortoise", "", "Animals that start with S", "Saanen Goat", "Saarloos Wolfdog", "Saber-Toothed Tiger", "Sable", "Sable Black German Shepherd", "Saiga", "Saint Berdoodle", "Saint Bernard", "Saint Shepherd", "Salamander", "Salmon", "Salmon Shark", "Saluki", "Samoyed", "Sand Lizard", "Sand Tiger Shark", "Saola", "Sardines", "Satanic leaf-tailed gecko", "Savanna Goat", "Sawfish", "Scarlet Macaw", "Schipperke", "Schneagle", "Schnoodle", "Scimitar-horned Oryx", "Scorpion", "Scorpion Fish", "Scottish Terrier", "Scrotum Frog", "Sea Anemone", "Sea Dragon", "Sea Eagle", "Sea Lion", "Sea Otter", "Sea Slug", "Sea Squirt", "Sea Turtle", "Sea Urchin", "Seagull", "Seahorse", "Seal", "Sealyham Terrier", "Sei Whale", "Senegal Parrot", "Serval", "Shark", "Sharp-Tailed Snake", "Sheep", "Sheepadoodle", "Shepadoodle", "Shepkita", "Shepweiler", "Shiba Inu", "Shih Poo", "Shih Tzu", "Shoebill Stork", "Shollie", "Shrimp", "Siamese", "Siamese Fighting Fish", "Siberian", "Siberian Husky", "Siberian Ibex", "Siberian Retriever", "Siberian Tiger", "Siberpoo", "Silkie Chicken", "Silky Terrier", "Silver Dollar", "Silver Labrador", "Sixgill shark", "Skate Fish", "Skink Lizard", "Skipjack Tuna", "Skunk", "Skye Terrier", "Sleeper Shark", "Sloth", "Slow Worm", "Slug", "Smooth Fox Terrier", "Snail", "Snake", "Snapping Turtle", "Snorkie", "Snow Leopard", "Snowshoe", "Snowshoe Hare", "Snowy Owl", "Somali", "Song Sparrow", "Song Thrush", "South China Tiger", "Spadefoot Toad", "Spanador", "Spanish Goat", "Spanish Mastiff", "Sparrow", "Spectacled Bear", "Sperm Whale", "Spider Monkey", "Spider Wasp", "Spinner Shark", "Spinone Italiano", "Spiny Dogfish", "Spiny Hill Turtle", "Spixs Macaw", "Sponge", "Spotted Gar", "Spotted Lanternfly", "Springador", "Springbok", "Springerdoodle", "Squash Beetle", "Squid", "Squirrel", "Squirrel Monkey", "Squirrelfish", "Sri Lankan Elephant", "Stabyhoun", "Staffordshire Bull Terrier", "Stag Beetle", "Standard Schnauzer", "Star-nosed mole", "Starfish", "Steller’s Sea Cow", "Stick Insect", "Stingray", "Stoat", "Stone Crab", "Stork", "Striped Hyena", "Striped Rocket Frog", "Sturgeon", "Sucker Fish", "Sugar Glider", "Sulcata Tortoise", "Sumatran Elephant", "Sumatran Orang-utan", "Sumatran Rhinoceros", "Sumatran Tiger", "Sun Bear", "Swai Fish", "Swan", "Swedish Vallhund", "Syrian Hamster", "Taco Terrier", "Takin", "Tamaskan", "Tang", "Tapanuli Orang-utan", "Tapir", "Tarantula Hawk", "Tarpon", "Tarsier", "Tasmanian Devil", "Tasmanian Tiger", "Tawny Owl", "Teddy Bear Hamster", "Teddy Roosevelt Terrier", "Tenterfield Terrier", "Termite", "Terrier", "Tetra", "Texas Heeler", "Thai Ridgeback", "Thorny Devil", "Thrush", "Tibetan Fox", "Tibetan Mastiff", "Tibetan Spaniel", "Tibetan Terrier", "Tick", "Tiffany", "Tiger", "Tiger Beetle", "Tiger Moth", "Tiger Salamander", "Tiger Shark", "Toadfish", "Torkie", "Tortoise", "Toucan", "Toy Fox Terrier", "Toy Poodle", "Transylvanian Hound", "Tree Frog", "Tree Kangaroo", "Tree swallow", "Treeing Tennessee Brindle", "Treeing Walker Coonhound", "Tropicbird", "Tsetse Fly", "Tuatara", "Tuna", "Turkey", "Turkish Angora", "Turtles", "Uakari", "Uguisu", "Umbrellabird", "Utonagan", "Vampire Bat", "Vampire Squid", "Vaquita", "Vervet Monkey", "Vicuna", "Vinegaroon", "Virgin Islands Dwarf Gecko", "Vizsla", "Volpino Italiano", "Vulture", "Walking Catfish", "Wallaby", "Walleye Fish", "Walrus", "Wandering Albatross", "Warthog", "Wasp", "Water Buffalo", "Water Dragon", "Water Vole", "Weasel", "Weimaraner", "Weimardoodle", "Welsh Corgi", "Welsh Terrier", "West Highland Terrier", "Western Gorilla", "Western Lowland Gorilla", "Westiepoo", "Whale Shark", "Wheaten Terrier", "Whippet", "White Butterfly", "White Rhinoceros", "White Tiger", "White-Faced Capuchin", "White-tail deer", "White-Tailed Eagle", "Whoodle", "Whooping Crane", "Wild Boar", "Wildebeest", "Willow Warbler", "Wire Fox Terrier", "Wirehaired Pointing Griffon", "Wolf", "Wolf Eel", "Wolf Spider", "Wolffish", "Wolverine", "Wombat", "Wood Bison", "Wood Frog", "Wood Turtle", "Woodlouse", "Woodlouse Spider", "Woodpecker", "Woodrat", "Woolly Mammoth", "Woolly Monkey", "Worm", "Wrasse", "Writing Spider", "Wyoming Toad", "X-Ray Tetra", "Xerus", "Xoloitzcuintli", "Yak", "Yakutian Laika", "Yellow Sac Spider", "Yellow-Eyed Penguin", "Yellowfin Tuna", "Yeti Crab ", "Yoranian", "Yorkie Bichon", "Yorkie-poo", "Yorkshire Terrier", "Zebra", "Zebra Finch", "Zebra Mussels", "Zebra Pleco", "Zebra Shark", "Zebu", "Zonkey", "Zorse", "Zuchon", "Abelia", "Abeliophyllum (white forsythia)", "Abelmoschus (okra)", "Abies (fir)", "Abroma", "Abromeitiella (obsolete)", "Abronia (sand verbena)", "Abrus", "Abutilon", "Acacia (wattle)", "Acaena", "Acalypha", "Acanthaceae", "Acanthodium", "Acantholimon", "Acanthopale", "Acanthophoenix", "Acanthus", "Acca", "Acer (maple)", "Achariaceae", "Achillea (yarrow)", "Achimenantha (hybrid genus)", "Achimenes", "Acinos (calamint)", "Aciphylla", "Acmena", "Acoelorrhaphe (saw palm)", "Acokanthera", "Aconitum (aconite, monkshood)", "Acorus", "Acradenia", "Acrocomia", "Actaea (baneberry)", "Actinidia (kiwifruit)", "Ada orchid genus", "Adansonia", "Adenandra", "Adenanthos", "Adenia", "Adenium", "Adenocarpus", "Adenophora", "Adenostoma", "Adiantum (maidenhair fern)", "Adlumia", "Adonis", "Adromischus", "Aechmea", "Aegopodium", "Aeonium", "Aerangis (an orchid genus)", "Aerides (an orchid genus)", "Aeschynanthus", "Aesculus", "Aethionema", "Afgekia", "Agapanthus", "Agapetes", "Agastache", "Agathis", "Agathosma", "Agave", "Ageratum", "Aglaia", "Aglaomorpha", "Aglaonema", "Agonis", "Agrimonia", "Agrostemma (corn cockle)", "Agrostis", "Aichryson", "Ailanthus (tree of heaven, etc.)", "Aiphanes", "Aira (hair grass)", "Ajania", "Ajuga (bugleweed)", "Akebia", "Alangium", "Alberta", "Albizia (silk tree)", "Albuca", "Alcea (hollyhock)", "Alchemilla", "Aldrovanda", "Aleurites", "Aliceara (hybrid genus)", "Alisma (water plantain)", "Alkanna", "Allagoptera", "Allamanda", "Allium (onion)", "Allocasuarina", "Allosyncarpia", "Alloxylon", "Alluaudia", "Alnus (alder)", "Alocasia", "Aloe", "Aloinopsis", "Alonsoa", "Alopecurus (foxtail grass)", "Aloysia", "Alphitonia", "Alpinia (ginger lily)", "Alsobia", "Alstonia", "Alstroemeria", "Alternanthera", "Althaea", "Alyogyne", "Alyssum", "Alyxia", "Amaranthus", "Amarcrinum (hybrid genus)", "Amarygia (hybrid genus)", "Amaryllis", "Amberboa", "Amelanchier", "Amesiella", "Amherstia", "Amicia", "Ammi", "Ammobium", "Amorpha", "Amorphophallus", "Ampelopsis", "Amsonia", "Anacampseros", "Anacardium", "Anacyclus", "Anagallis (pimpernel)", "Ananas (pineapple)", "Anaphalis", "Anchusa", "Andersonia", "Andira", "Androlepis", "Andromeda", "Andropogon", "Androsace", "Anemone (windflower)", "Anemonella", "Anemonopsis", "Anemopaegma", "Anethum (dill)", "Angelica", "Angelonia", "Angiopteris", "Angophora", "Angraecum (an orchid genus)", "Anguloa (an orchid genus)", "Angulocaste (a hybrid orchid genus)", "Anigozanthos", "Anisacanthus", "Anisodontea", "Annona", "Anoda", "Anomatheca (See Freesia)", "Anopterus", "Anredera", "Antennaria", "Anthemis", "Anthericum", "Anthocleista", "Anthotroche", "Anthriscus", "Anthurium", "Anthyllis", "Antidesma", "Antigonon", "Antirrhinum (snapdragon)", "Apera", "Aphelandra", "Aphyllanthes", "Apium", "Apocynum", "Aponogeton", "Apophyllum", "Apodytes", "Aponogeton", "Aporocactus", "Aporoheliocereus (hybrid genus)", "Aprevalia", "Aptenia", "Aquilegia (columbine)", "Arabis (rock cress)", "Arachis", "Arachniodes", "Arachnis (scorpion orchid) (orchid genus)", "Araeococcus", "Araiostegia", "Aralia", "Araucaria (monkey-puzzle)", "Araujia", "Arbutus (madrone)", "Archidendron", "Archontophoenix (king palm)", "Arctium", "Arctostaphylos (bearberry, manzanita)", "Arctotheca", "Arctotis (African daisy)", "Ardisia", "Areca", "Arenaria (sandwort)", "Arenga", "Argemone (prickly poppy)", "Argyranthemum", "Argyreia", "Argyroderma", "Ariocarpus", "Arisaema", "Arisarum", "Aristea", "Aristolochia", "Aristotelia", "Armeria", "Armoracia", "Arnebia", "Arnica", "Aronia (chokeberry)", "Arrabidaea (See Saritaea)", "Arrhenatherum (oat grass)", "Artanema", "Artabotrys", "Artemisia (mugwort, sagebrush, wormwood)", "Arthrocereus", "Arthropodium", "Artocarpus", "Arum", "Aruncus", "Arundina", "Arundinaria", "Arundo", "Asarina", "Asarum (wild ginger)", "Asclepias (milkweed, silkweed)", "Ascocenda (hybrid genus) (an orchid genus)", "Ascocentrum an orchid genus", "Asimina", "Asparagus", "Asperula (woodruff)", "Asphodeline", "Asphodelus (asphodel)", "Aspidistra", "Asplenium", "Astelia", "Aster", "Asteranthera", "Astilbe", "Astilboides", "Astragalus (milk vetch)", "Astrantia", "Astrophytum", "Asystasia", "Atalaya", "Athamanta", "Atherosperma", "Athrotaxis", "Athyrium", "Atriplex", "Attalea", "Aubrieta", "Aucuba", "Aulax", "Auranticarpa", "Aurinia", "Austrocedrus", "Austrocylindropuntia", "Austrostipa", "Averrhoa", "Avicennia", "Azadirachta", "Azalea", "Azara", "Azolla (aquatic ferns)", "Azorella", "Azorina", "Aztekium", "Azetura", "B", "Contents: ", "Top0–9ABCDEFGHIJKLMNOPQRSTUVWXYZ", "Babiana", "Baccharis", "Backhousia", "Bacopa (water hyssop)", "Bactris", "Baeckea", "Baikiaea", "Baileya", "Ballota", "Balsamorhiza (balsam root)", "Bambusa (bamboo)", "Banksia", "Baptisia an orchid genus", "Barbarea (yellow rocket or winter cress)", "Barkeria (an orchid genus)", "Barleria", "Barklya (gold blossom tree)", "Barnadesia", "Barringtonia", "Bartlettina", "Basselinia", "Bassia", "Bauera", "Bauhinia", "Baumea", "Beallara an orchid hybrid genus", "Beaucarnea", "Beaufortia", "Beaumontia", "Beccariella", "Bedfordia", "Begonia", "Belamcanda", "Bellevalia", "Bellis (daisy)", "Bellium", "Berberidopsis", "Berberis (barberry)", "Berchemia", "Bergenia", "Bergerocactus", "Berkheya", "Berlandiera", "Berrya", "Bertolonia", "Berzelia", "Beschorneria", "Bessera", "Beta (beet)", "Betula (birch)", "Biarum", "Bidens", "Bignonia", "Bikkia", "Billardiera", "Billbergia", "Bischofia", "Bismarckia", "Bixa", "Blandfordia", "Blechnum (hard fern)", "Bletilla (an orchid genus)", "Blighia", "Bloomeria", "Blossfeldia", "Bocconia", "Boenninghausenia", "Bolax", "Bolbitis", "Bollea (an orchid genus)", "Boltonia", "Bolusanthus", "Bomarea", "Bombax", "Bongardia", "Boophone", "Borago", "Borassodendron", "Borassus", "Boronia", "Bosea", "Bossiaea", "Bothriochloa", "Bougainvillea", "Bouteloua", "Bouvardia", "Bowenia", "Bowiea", "Bowkeria", "Boykinia", "Brabejum", "Brachychiton", "Brachyglottis", "Brachylaena", "Brachypodium", "Brachyscome", "Brachysema", "Brachystelma", "Bracteantha", "Brahea (hesper palm)", "Brassavola (an orchid genus)", "Brassaia (octopus tree)", "Brassia (an orchid genus)", "Brassica (mustard, cabbage)", "Brassidium (hybrid orchids)", "Brassocattleya (hybrid orchids)", "Brassolaeliocattleya (trigeneric hybrid orchids)", "Breynia", "Briggsia", "Brillantaisia", "Brimeura", "Briza (quaking grass)", "Brodiaea", "Bromelia", "Broughtonia an orchid genus", "Broussonetia", "Browallia", "Brownea", "Browningia", "Bruckenthalia", "Brugmansia", "Brunfelsia", "Brunia", "Brunnera", "Brunsvigia", "Brya", "Buchloe", "Buckinghamia", "Buddleja", "Buglossoides", "Bulbine", "Bulbinella", "Bulbocodium", "Bulbophyllum (an orchid genus)", "Bulnesia", "Bunchosia", "Buphthalmum", "Bupleurum", "Burchardia", "Burchellia", "Burrageara an orchid hybrid genus", "Burretiokentia", "Bursaria", "Bursera", "Burtonia", "Butea", "Butia", "Butomus", "Buxus (boxwood)", "Byrsonima", "Bystropogon", "C", "Contents: ", "Top0–9ABCDEFGHIJKLMNOPQRSTUVWXYZ", "Cabomba", "Cadia", "Caesalpinia (dwarf poinciana, Pride of Barbados)", "Caladium", "Calamagrostis (reed grass, smallweed)", "Calamintha (calamint)", "Calamus", "Calandrinia", "Calanthe an orchid genus", "Calathea", "Calceolaria (slipperwort)", "Calendula (pot marigold)", "Calibanus", "Calibrachoa", "Calla", "Calliandra", "Callianthemum", "Callicarpa (beauty berry)", "Callicoma (black wattle)", "Callirhoe (poppy mallow)", "Callisia", "Callistemon (bottlebrush)", "Callistephus (Chinese aster)", "Callitriche (water starwort)", "Callitris (cypress pine)", "Calluna (heather)", "Calocedrus (incense cedar)", "Calochone", "Calochortus", "Calodendrum (cape chestnut)", "Calomeria", "Calophaca", "Calophyllum", "Calopyxis", "Caloscordum", "Calothamnus", "Calotropis", "Calpurnia", "Caltha (kingcup, marsh marigold)", "Calycanthus", "Calymmanthium", "Calypso (an orchid genus)", "Calytrix (starflower)", "Camassia (quamash)", "Camellia", "Camoensia", "Campanula (bellflower)", "Campsis (trumpet vine)", "Campylotropsis (SeeLespedeza)", "Cananga (ylang ylang)", "Canarina", "Canistrum", "Canna", "Cantua", "Capparis", "Capsicum (pepper)", "Caragana (peashrub)", "Caralluma", "Cardamine (bittercress)", "Cardiocrinum", "Cardiospermum", "Cardwellia", "Carex (sedge)", "Carissa", "Carlina", "Carludovica", "Carmichaelia", "Carnegiea (saguaro)", "Carpentaria", "Carphalea", "Carpinus (hornbeam)", "Carpobrotus", "Carthamus (safflower)", "Carum (caraway)", "Carya (hickory, pecan)", "Caryopteris", "Caryota (fishtail palm)", "Cassia (shower tree)", "Cassinia", "Cassiope", "Cassipourea", "Castanea (chestnut)", "Castanopsis", "Castanospermum (black bean)", "Casuarina (sheoak)", "Catalpa (Indian bean)", "Catananche", "Catasetum (an orchid genus)", "Catha (khat tree)", "Catharanthus (Madagascar periwinkle)", "Catopsis", "Cattleya (an orchid genus)", "Caulophyllum", "Cautleya", "Cavendishia", "Ceanothus (California-lilac)", "Cedrela (toon)", "Cedronella", "Cedrus (cedar)", "Ceiba (kapok)", "Celastrus (staff-vine)", "Celmisia (New Zealand daisy, New Zealand aster)", "Celosia (cockscomb)", "Celtis (hackberry)", "Centaurea", "Centaurium", "Centradenia", "Centranthus (valerian)", "Cephalaria", "Cephalocereus", "Cephalophyllum", "Cephalotaxus (plum-yew)", "Ceraria", "Cerastium", "Ceratonia (St.John's bread, carob bean)", "Ceratopetalum (coachwood)", "Ceratophyllum", "Ceratopteris", "Ceratostigma", "Ceratozamia", "Cerbera (sea mango)", "Cercidiphyllum", "Cercis (Judas tree, redbud)", "Cercocarpus", "Cereus", "Ceropegia", "Cestrum", "Chadsia", "Chaenomeles (flowering quince)", "Chaenorhinum (dwarf snapdragon)", "Chaerophyllum", "Chamaecyparis (false cypress)", "Chamaecytisus", "Chamaedaphne", "Chamaedorea", "Chamaelirium", "Chamaemelum (chamomile)", "Chamaerops", "Chamelaucium (wax flower)", "Chasmanthe", "Chasmanthium", "Cheilanthes", "Cheiridopsis", "Chelidonium", "Chelone (turtlehead)", "Chiastophyllum", "Chiliotrichum", "Chilopsis (desert willow)", "Chimaphila", "Chimonanthus (wintersweet)", "Chimonobambusa", "Chionanthus (fringe tree)", "Chionochloa", "Chirita", "Chlidanthus", "Choisya", "Chonemorpha (Frangipani vine)", "Choricarpia (brush turpentine)", "Chorisia (floss silk tree)", "Chorizema", "Chrysalidocarpus", "Chrysanthemoides", "Chrysanthemum", "Chrysobalanus", "Chrysogonum", "Chrysolepis", "Chrysophyllum (star apple)", "Chrysothemis", "Chusquea", "Cibotium", "Cicerbita", "Cichorium (chicory, endive)", "Cimicifuga (bugbane)", "Cinnamomum (camphor laurel)", "Cionura", "Cirsium", "Cissus", "Cistus (rock rose, sun rose)", "Citharexylum (fiddlewood)", "Citrofortunella (hybrid)", "Citrus (lime, lemon)", "Cladanthus", "Cladrastis", "Clarkia", "Claytonia", "Cleistocactus", "Clematis", "Cleome (spider flower)", "Clerodendrum", "Clethra (summersweet)", "Cleyera", "Clianthus", "Clintonia", "Clitoria", "Clivia", "Clusia", "Clytostoma", "Cobaea", "Coccoloba (sea grape)", "Coccothrinax (thatch palm)", "Cocculus", "Cochlioda an orchid genus", "Cochlospermum (buttercup tree, Maximiliana)", "Cocos (coconut)", "Codiaeum (croton)", "Codonanthe", "Codonopsis", "Coelia", "Coelogyne (an orchid genus)", "Coffea (coffee tree)", "Coix", "Colchicum (autumn crocus, meadow saffron)", "Coleonema", "Colletia", "Collinsia", "Collomia", "Colocasia (taro)", "Colquhounia", "Columnea", "Colutea (bladder senna)", "Coluteocarpus", "Colvillea", "Combretum", "Comesperma", "Commelina (day flower, spiderwort, widow's tears)", "Commersonia", "Commidendrum", "Commiphora", "Comptonella", "Comptonia (Sweetfern)", "Conandron", "Congea", "Conicosia", "Coniogramme", "Conoclinium (mistflower)", "Conophytum", "Conospermum", "Conostylis", "Conradina", "Consolida (larkspur)", "Convallaria (lily-of-the-valley)", "Convolvulus (bindweed, morning glory)", "Copernicia (caranda palm, wax palm)", "Copiapoa syn. Pilocopiapoa", "Coprosma", "Coptis (goldthread)", "Cordia (bird lime tree)", "Cordyline", "Coreopsis (tickseed)", "Coriandrum (coriander cilantro)", "Coriaria", "Cornus (dogwood, cornel)", "Corokia", "Coronilla", "Correa", "Corryocactus", "Cortaderia (pampas grass, tussock grass)", "Cortusa", "Corybas (helmet orchid)", "Corydalis", "Corylopsis (winter-hazel)", "Corylus (hazel, filbert)", "Corymbia", "Corynocarpus", "Corypha", "Coryphantha", "Cosmos", "Costus", "Cotinus (smoke bush)", "Cotoneaster", "Cotula (brass buttons)", "Cotyledon", "Couroupita (cannonball tree)", "Crambe", "Craspedia", "Crassula", "+Crataegomespilus (graft chimera)", "Crataegus (hawthorn)", "× Crataemespilus (hybrid)", "Crepis", "Crescentia (calabash)", "Crinodendron", "Crinum", "Crocosmia (falling stars, montbretia)", "Crocus", "Crossandra (firecracker flower)", "Crotalaria (rattlepod)", "Croton", "Crowea", "Cryptanthus (earth stars)", "Cryptbergia (hybrid)", "Cryptocarya", "Cryptocoryne (water trumpet)", "Cryptomeria (sugi, Japanese cedar)", "Cryptostegia (Indian rubber vine)", "Cryptotaenia", "Ctenanthe", "Cucumis", "Cucurbita", "Cuminum", "Cunila", "Cunninghamia (China-fir)", "Cunonia", "Cupaniopsis (tuckeroo)", "Cuphea", "Cupressus (cypress)", "Cuprocyparis (hybrid)", "Curcuma", "Cussonia", "Cyananthus (trailing bellflower)", "Cyanotis", "Cyathea (tree fern)", "Cyathodes", "Cybistax", "Cycas (cycad, sago palm)", "Cyclamen", "", "Pink cyclamen", "Cycnoches an orchid genus", "Cydista", "Cydonia (quince)", "Cylindropuntia", "Cymbalaria (ivy-leaved toadflax)", "Cymbidium (an orchid genus)", "Cymbopogon", "Cynara", "Cynodon", "Cynoglossum (hound's tongue)", "Cypella", "Cyperus", "Cyphomandra (tree tomato)", "Cyphostemma", "Cypripedium (lady's slipper)(an orchid genus)", "Cyrilla", "Cyrtanthus (fire lily)", "Cyrtomium", "Cyrtostachys", "Cystopteris (bladder fern)", "Cytisus (broom)", "D", "Contents: ", "Top0–9ABCDEFGHIJKLMNOPQRSTUVWXYZ", "Daboecia", "Dacrydium", "Dactylis", "Dactylorhiza (marsh orchid)", "Dahlia", "Dalea (indigo bush)", "Dalechampia", "Damasonium", "Dampiera", "Danae", "Daphne", "Daphniphyllum", "Darlingia", "Darmera syn. Peltiphyllum", "Darwinia (lemon scented myrtle)", "Dasylirion", "Datura", "Davallia (hare's foot fern)", "Davidia", "Daviesia", "Decaisnea", "Degarmoara ( a hybrid orchid genus)", "Decarya", "Decumaria", "Deinanthe", "Delairea", "Delonix", "Delosperma", "Delphinium", "Dendranthema", "Dendrobium (an orchid genus)", "Dendrocalamus", "Dendrochilum (an orchid genus)", "Dendromecon (tree poppy)", "Denmoza", "Dennstaedtia (Hayscented fern or Cup fern)", "Deppea", "Derris", "Derwentia", "Deschampsia (hair grass)", "Desfontainia", "Desmodium", "Deuterocohnia syn. Abromeitiella", "Deutzia", "Dianella (flax lily)", "Dianthus (carnation, pink)", "Diascia (twinspur)", "Dicentra (bleeding heart)", "Dichelostemma", "Dichondra", "Dichorisandra", "Dichroa", "Dicksonia", "Dicliptera", "Dictamnus (burning bush, dittany)", "Dictyosperma (princess palm)", "Didymochlaena", "Dieffenbachia (dumb cane, mother-in-law's tongue, tuftroot)", "Dierama (African harebell, angel's fishing rod, wand flower)", "Diervilla (bush honeysuckle)", "Dietes", "Digitalis (foxglove)", "Dillenia", "Dillwynia", "Dimorphotheca (African daisy)", "Dionaea (Venus flytrap)", "Dionysia", "Dioon", "Dioscorea syns. Rajania, Tamus, Testudinaria(yam)", "Diospyros (ebony, persimmon)", "Dipcadi", "Dipelta", "Diphylleia", "Diplarrhena (butterfly flag)", "Diplazium", "Diplocyclos", "Diploglottis", "Diplolaena", "Dipsacus (teasel)", "Dipteris", "Dipteronia", "Dipteryx", "Dirca (leatherwood)", "Disa (an orchid genus)", "Disanthus", "Discaria", "", "Dischidia pectinoides (ant plant)", "Dischidia", "Discocactus", "Disocactus", "Disporopsis", "Disporum (fairy-bells)", "Dissotis", "Distictis", "Distylium", "Dizygotheca", "Docynia", "Dodecatheon (shooting stars, American cowslip)", "Dodonaea (hop bush)", "Dolichandrone", "Dombeya", "Doodia (hacksaw fern, rasp fern)", "Doronicum (leopard's bane)", "Dorotheanthus (ice plant, Livingstone daisy)", "Dorstenia", "Doryanthes (spear lily)", "Doryopteris", "Dovyalis", "Draba (whitlow grass)", "Dracaena", "Dracocephalum", "Dracophyllum", "Dracula (an orchid genus)", "Dracunculus", "Dregea", "Drimys", "Drosanthemum", "Drosera (sundew)", "Dryandra", "Dryas (mountain avens)", "Drynaria", "Dryopteris (buckler fern, shield fern, wood fern)", "Duboisia", "Duchesnea (Indian strawberry, mock strawberry)", "Dudleya", "Duranta", "Duvalia", "Dyckia", "Dymondia", "Dypsis syn. Chrysalidocarpus, Neodypsis", "E", "Contents: ", "Top0–9ABCDEFGHIJKLMNOPQRSTUVWXYZ", "Ebracteola", "Ecballium", "Eccremocarpus", "Echeveria", "Echidnopsis", "Echinacea (coneflower)", "Echinocactus", "Echinocereus", "Echinops (globe thistle)", "Echinopsis", "Echium", "Edgeworthia", "Edithcolea", "Edraianthus", "Egeria", "Ehretia", "Eichhornia (water hyacinth)", "Elaeagnus", "Elaeis (oil palm)", "Elaeocarpus", "Elatostema", "Eleocharis (spike rush)", "Elettaria", "Eleutherococcus", "Elodea (pondweed)", "Elsholtzia", "Elymus (wild rye)", "Embothrium", "Emilia (tasselflower)", "Emmenopterys", "Encelia", "Encephalartos (Kaffir bread)", "Encyclia (an orchid genus)", "Enkianthus", "Ensete", "Eomecon (snow poppy)", "Epacris", "Ephedra (ephedra)", "Epidendrum (an orchid genus)", "Epigaea", "Epilobium", "Epimedium (barrenwort)", "Epipactis (helleborine, an orchid genus)", "Epiphyllum (orchid cactus)", "Episcia (flame violet)", "Epithelantha", "Equisetum (horsetail)", "Eragrostis (love grass)", "Eranthemum", "Eranthis (winter aconite)", "Ercilla", "Eremophila (emu bush)", "Eremurus", "Erica (heath/heather)", "Erigeron (fleabane)", "Erinacea", "Erinus", "Eriobotrya", "Eriogonum", "Eriophorum (cotton grass)", "Eriophyllum", "Eriostemon (waxflower)", "Eritrichium", "Erodium", "Eryngium (eryngo, sea holly)", "Erysimum (wallflower)", "Erythrina (coral tree)", "Erythronium", "Escallonia", "Eschscholzia (California poppy)", "Escobaria", "Espostoa", "Etlingera", "Eucalyptus (gum tree, ironbark)", "Eucharis", "Eucomis", "Eucommia", "Eucryphia", "Eulophia (an orchid genus)", "Euonymus", "Eupatorium", "Euphorbia (spurge)", "Euptelea", "Eurya", "Euryale ferox", "Euryops", "Eustoma", "Evolvulus", "Exacum", "Exochorda", "F", "Contents: ", "Top0–9ABCDEFGHIJKLMNOPQRSTUVWXYZ", "Fabiana", "Fagus (beech)", "Fallopia", "Farfugium", "Fargesia", "Fascicularia", "Fatshederae (hybrid genus)", "Fatsia", "Faucaria", "Felicia (blue daisy)", "Fendlera", "Fenestraria", "Ferocactus", "Ferraria", "Ferula (giant fennel)", "Festuca (fescue)", "Fibigia", "Ficus (fig)", "Ficus pumila", "Filipendula", "Firmiana", "Fittonia", "Fitzroya", "Fockea", "Foeniculum (fennel)", "Fontanesia", "Forsythia", "Fortunella (kumquat)", "Fothergilla", "Fouquieria", "Fragaria (strawberry)", "Frailea", "Francoa", "Frangipani", "Franklinia", "Fraxinus (ash)", "Freesia", "Fremontodendron", "Fritillaria (fritillary)", "Fuchsia", "Furcraea", "", "Fragaria x ananassa.", "G", "Contents: ", "Top0–9ABCDEFGHIJKLMNOPQRSTUVWXYZ", "Gagea", "Gaillardia", "Galanthus (snowdrop)", "Galax", "Galega", "Galium (bedstraw)", "Galtonia", "Gardenia", "Garrya", "Gasteria", "Gaultheria", "Gaura", "Gaylussacia (huckleberry)", "Gazania", "Geissorhiza", "Gelsemium", "Genista", "Gentiana (gentian)", "Gentianopsis", "Geranium (cranesbill, not same as Pelargonium)", "Gerbera", "Gesneria", "Geum (avens)", "Gevuina", "Gibbaeum", "Gilia", "Gillenia", "Ginkgo", "Gladiolus", "Glaucidium", "Glaucium", "Gleditsia (honey locust)", "Globba", "Globularia (globe daisy)", "Gloriosa", "Glottiphyllum", "Gloxinia", "Glyceria", "Glycyrrhiza", "Gomphocarpus", "Gomphrena", "Goniolimon", "Goodyera (jewel orchid)", "Gordonia", "Graptopetalum", "Graptophyllum", "Graptoveria (hybrid genus)", "Grevillea", "Grewia", "Greyia", "Grindelia", "Griselinia", "Gunnera (dinosaur food)", "Guzmania", "Gymnocalycium", "Gymnocarpium", "Gymnocladus", "Gynandriris", "Gynura", "Gypsophila", "H", "Contents: ", "Top0–9ABCDEFGHIJKLMNOPQRSTUVWXYZ", "Haageocereus", "Haastia", "Habenaria (an orchid genus)", "Haberlea", "Habranthus", "Hacquetia", "Haemanthus (blood lily)", "Hakea", "Hakonechloa", "Halesia (silverbell)", "Halimiocistus (hybrid genus)", "Halimium", "Halimodendron", "Hamamelis (witch-hazel)", "Haplopappus", "Hardenbergia (coral pea)", "Harrisia", "Hatiora", "Haworthia", "Hebe", "Hechtia", "Hedera (ivy)", "Hedychium", "Hedyotis (bluets)", "Hedysarum", "Hedyscepe (umbrella palm)", "Helenium (sneezeweed)", "Helianthemum (rock rose)", "Helianthus (sunflower)", "Helichrysum", "Heliconia", "Helictotrichon", "Heliocereus", "Heliophila", "Heliopsis (ox eye)", "Heliotropium (heliotrope)", "Helleborus (hellebore)", "Heloniopsis", "Hemerocallis (daylily)", "Hemigraphis", "Hepatica", "Heptacodium", "Heracleum", "Herbertia", "Hereroa", "Hermannia", "Hermodactylus", "Hesperaloe", "Hesperantha", "Hesperis", "Hesperocallis", "Heterocentron", "Heterotheca", "Heuchera (coral flower)", "× Heucherella (hybrid genus)", "Hibbertia", "Hibiscus (rose of Sharon)", "Hieracium (hawkweed)", "Himalayacalamus", "Hippeastrum (amaryllis)", "Hippocrepis", "Hippophae", "Hohenbergia", "Hohenbergiopsis", "Hoheria", "Holboellia", "Holcus", "Holmskioldia", "Holodiscus", "Homalocladium (ribbon bush)", "Homeria", "Hoodia", "Hordeum (barley)", "Horminum", "Hosta (plantain lily)", "Hottonia", "Houttuynia", "Hovea", "Hovenia", "Howea (sentry palm)", "Hoya (wax flower)", "Huernia", "Humulus (hops)", "Hunnemannia", "Huntleya an orchid genus", "Hyacinthella", "Hyacinthoides", "Hyacinthus (hyacinth)", "Hydrangea", "Hydrastis (goldenseal)", "Hydrocharis (frogbit)", "Hydrocleys", "Hydrocotyle (pennywort)", "Hygrophila", "Hylocereus", "Hylomecon", "Hymenocallis", "Hymenosporum", "Hyophorbe (bottle palm)", "Hyoscyamus (henbane)", "Hypericum (St. John's wort, rose of Sharon)", "Hyphaene (doum palm)", "Hypocalymma", "Hypoestes", "Hypoxis (starflower)", "Hypsela", "Hyssopus (hyssop)", "I", "Contents: ", "Top0–9ABCDEFGHIJKLMNOPQRSTUVWXYZ", "Iberis (candytuft)", "Ibervillea", "Idesia", "Ilex (holly)", "Illicium", "Impatiens (balsam)", "Imperata", "Incarvillea", "Indigofera", "Inula", "Iochroma", "Ipheion", "Ipomoea (morning glory)", "Ipomopsis", "Iresine", "Iris", "Isatis", "Isoplexis", "Isopyrum", "Itea", "Ixia (corn lily)", "Ixiolirion", "Ixora", "J", "Contents: ", "Top0–9ABCDEFGHIJKLMNOPQRSTUVWXYZ", "Jaborosa", "Jacaranda", "Jacquemontia", "Jamesia", "Jasione", "Jasminum (jasmine, jessamine)", "Jatropha", "Jeffersonia", "Jovellana", "Jovibarba", "Juanulloa", "Jubaea (Chilean wine palm)", "Juglans (walnut)", "Juncus (rush)", "Juniperus (juniper)", "Justicia", "K", "Contents: ", "Top0–9ABCDEFGHIJKLMNOPQRSTUVWXYZ", "Kadsura", "Kaempferia", "Kalanchoe", "Kalimeris", "Kalmia (mountain laurel)", "Kalmiopsis", "Kalopanax", "Kelseya", "Kerria", "Kigelia (sausage tree)", "Kirengeshoma", "Kitaibela", "Kleinia", "Knautia", "Knightia", "Kniphofia", "Koeleria (junegrass)", "Koelreuteria (golden rain tree)", "Kohleria", "Kolkwitzia (beautybush)", "Kosteletzkya", "Kunzea", "L", "Contents: ", "Top0–9ABCDEFGHIJKLMNOPQRSTUVWXYZ", "Lablab", "Laburnocytisus", "Laburnum (laburnum)", "Laccospadix", "Lachenalia (Cape cowslip)", "Laelia (an orchid genus)", "Laeliocattleya (hybrid orchid genus)", "Lagarosiphon", "Lagenophora", "Lagerstroemia", "Lagunaria", "Lagurus", "Lamarckia", "Lambertia", "Lamium (deadnettle)", "Lampranthus", "Lantana (shrub verbena)", "Lapageria", "Lardizabala", "Larix (larch)", "Larrea (creosote bush)", "Latania (Latan palm)", "Lathraea", "Lathyrus", "Laurelia", "Laurus", "Lavandula (lavender)", "Lavatera (mallow)", "Lawsonia", "Layia", "Ledebouria", "Ledodendron (hybrid genus)", "Ledum", "Leea", "Legousia", "Leiophyllum", "Leipoldtia", "Leitneria", "Lemboglossum", "Lenophyllum", "Leonotis", "Leontice", "Leontopodium (edelweiss)", "Lepidozamia", "Leptinella", "Lechenaultia", "Lespedeza (bush clover)", "Leucadendron", "Leucanthemella", "Leucanthemopsis", "Leucanthemum", "Leuchtenbergia", "Leucocoryne", "Leucogenes", "Leucojum (snowflake)", "Leucophyllum", "Leucophyta", "Leucopogon", "Leucoraoulia (hybrid genus)", "Leucospermum (pincushion)", "Leucothoe", "Lewisia", "Leycesteria", "Leymus", "Liatris", "Libertia", "Libocedrus", "Ligularia", "Ligustrum (privet)", "Lilium (lily)", "Limnanthes", "Limnocharis", "Limonium (sea lavender)", "Linanthus", "Linaria (toadflax)", "Lindelofia", "Lindera", "Lindheimera (star daisy)", "Linnaea (twinflower)", "Linospadix", "Linum (flax)", "Liquidambar (sweetgum)", "Liriodendron (tulip tree)", "Liriope (lilyturf)", "Lithocarpus", "Lithodora", "Lithophragma", "Lithops", "Littonia", "Livistona", "Loasa", "Lobelia", "Lobularia (sweet alyssum)", "Lodoicea (coco de mer)", "Loiseleuria", "Lomandra (mat rush)", "Lomatia", "Lomatium", "Lomatophyllum", "Lonicera (honeysuckle)", "Lopezia", "Lophomyrtus", "Lophospermum", "Lophostemon", "Loropetalum", "Lotus", "Luculia", "Ludwigia", "Luma", "Lunaria", "Lupinus (lupin)", "Luzula (woodrush)", "Lycaste (an orchid genus)", "Lychnis (campion)", "Lycium", "Lycopodium (club moss)", "Lycoris", "Lygodium (climbing fern)", "Lyonia", "Lyonothamnus", "Lysichiton (yellow skunk cabbage)", "Lysiloma", "Lysimachia", "Lythrum (loosestrife)", "M", "Contents: ", "Top0–9ABCDEFGHIJKLMNOPQRSTUVWXYZ", "Maackia", "Macfadyena", "Machaeranthera", "Mackaya", "Macleania", "Macleaya", "Maclura", "Macropidia", "Macrozamia", "Magnolia", "Mahonia", "Maianthemum (May lily)", "Maihuenia", "Malcolmia", "Malephora", "Malope", "Malpighia", "Malus (apple, crabapple)", "Malva (mallow)", "Malvastrum", "Malvaviscus", "Mammillaria", "Mandevilla", "Mandragora (mandrake)", "Manettia", "Manglietia", "Maranta", "Margyricarpus", "Marrubium (horehound)", "Marsilea (pepperwort)", "Masdevallia (an orchid genus)", "Matteuccia", "Matthiola (stock)", "Maurandella", "Maurandya", "Maxillaria (an orchid genus)", "Maytenus", "Mazus", "Meconopsis", "Medicago (alfalfa)", "Medinilla", "Meehania", "Megacodon", "Megaskepasma", "Melaleuca (paperbark)", "Melasphaerula", "Melastoma", "Melia", "Melianthus", "Melica (melic)", "Melicytus", "Melinis", "Meliosma", "Melissa (balm)", "Melittis (bastard balm)", "Melocactus", "Menispermum (moonseed)", "Mentha (mint)", "Mentzelia (starflower)", "Menyanthes", "Menziesia", "Merendera", "Merremia", "Mertensia", "Mespilus", "Metasequoia (dawn redwood)", "Metrosideros", "Meum", "Mexicoa", "Michauxia", "Michelia", "Microbiota", "Microcachrys", "Microlepia", "Micromeria", "Mikania", "Milium", "Milla", "Millettia", "Miltonia (an orchid genus)", "Miltoniopsis (pansy orchid)", "Mimetes", "Mimosa (mimosa, or sensitive plant)", "Mimulus (monkey flower)", "Mirabilis", "Miscanthus", "Mitchella (partridge berry)", "Mitella", "Mitraria", "Molinia", "Moltkia", "Moluccella", "Monadenium", "Monanthes", "Monarda (bee balm)", "Monardella", "Monstera", "Moraea", "Morina", "Morisia", "Morus (mulberry)", "Mucuna", "Muehlenbeckia", "Mukdenia", "Musa (banana, plantain)", "Muscari (grape hyacinth)", "Mussaenda", "Mutisia", "Myoporum", "Myosotidium", "Myosotis (forget-me-not)", "Myrica", "Myriophyllum (milfoil)", "Myrrhis (sweet cicely)", "Myrsine", "Myrteola", "Myrtillocactus", "Myrtus (myrtle)", "N", "Contents: ", "Top0–9ABCDEFGHIJKLMNOPQRSTUVWXYZ", "Nandina (heavenly bamboo)", "Narcissus (daffodil)", "Nasturtium (watercress)", "Nautilocalyx", "Nectaroscordum", "Neillia", "Nelumbo (lotus)", "Nematanthus", "Nemesia", "Nemopanthus (mountain holly)", "Nemophila", "Neobuxbaumia", "Neolitsea", "Neolloydia", "Neomarica", "Neoporteria", "Neoregelia", "Nepenthes (pitcher plant)", "Nepeta (catmint)", "Nephrolepis", "Nerine", "Nerium (oleander)", "Nertera", "Nicandra", "Nicotiana (tobacco)", "Nidularium", "Nierembergia", "Nigella", "Nipponanthemum", "Nolana", "Nomocharis", "Nopalxochia", "Nothofagus (southern beech)", "Notholirion", "Nothoscordum (false garlic)", "Notospartium", "Nuphar (spatterdock)", "Nymania", "Nymphaea (waterlily)", "Nymphoides (floating heart)", "Nyssa (tupelo)", "O", "Contents: ", "Top0–9ABCDEFGHIJKLMNOPQRSTUVWXYZ", "Obregonia", "Ochagavia", "Ochna", "Ocimum", "Odontioda (hybrid orchid genus)", "Odontocidium (hybrid orchid genus)", "Odontoglossum (an orchid genus)", "Odontonema", "Odontonia (hybrid orchid genus)", "Oemleria", "Oenanthe (water dropwort)", "Oenothera (evening primrose, sundrops)", "Olea (olive)", "Olearia (daisy bush)", "Olneya", "Olsynium", "Omphalodes (navelwort)", "Omphalogramma", "Oncidium (an orchid genus)", "Onoclea", "Ononis (restharrow)", "Onopordum", "Onosma", "Oophytum", "Ophiopogon (lilyturf)", "Ophrys (an orchid genus)", "Oplismenus", "Opuntia (prickly pears, chollas and many other cactus species)", "Orbea", "Orbeopsis", "Orchis (an orchid genus)", "Oreocereus", "Origanum (marjoram, oregano)", "Orixa", "Ornithogalum", "Orontium (golden club)", "Orostachys", "Oroya", "Ortegocactus", "Orthophytum", "Orthrosanthus", "Orychophragmus", "Oryza (rice)", "Osbeckia", "Osmanthus", "Osmunda (royal fern)", "Osteomeles", "Osteospermum", "Ostrowskia (giant bellflower)", "Ostrya", "Othonna", "Ourisia", "Oxalis (shamrock, sorrel)", "Oxydendrum", "Oxypetalum", "Ozothamnus", "P", "Contents: ", "Top0–9ABCDEFGHIJKLMNOPQRSTUVWXYZ", "Pachistima", "Pachycereus", "Pachycormus", "Pachycymbium", "Pachyphragma", "Pachyphytum", "Pachypodium", "Pachysandra", "Pachystachys", "Pachystegia", "Pachystima", "Pachyveria (hybrid genus)", "Paeonia (peony)", "Paliurus", "Pamianthe", "Panax (ginseng)", "Pancratium (sea lily)", "Pandanus (screw pine)", "Pandorea", "Panicum", "Pansy", "Papaver (poppy)", "Paphiopedilum (slipper orchid)", "Paradisea (paradise lily)", "Parahebe", "Paraquilegia", "Parkinsonia", "Parnassia", "Parochetus", "Parodia", "Paronychia", "Parrotia", "Parrotiopsis", "Parthenocissus", "Passiflora (granadilla, passionflower)", "Patersonia", "Patrinia", "Paulownia", "Paurotis", "Pavonia", "Pedilanthus", "Pediocactus", "Pelargonium (geranium)", "Pellaea", "Peltandra (arrow arum)", "Peltoboykinia", "Peltophorum", "Peniocereus", "Pennisetum", "Penstemon", "Pentachondra", "Pentaglottis", "Pentas", "Peperomia", "Peraphyllum", "Pereskia", "Perezia", "Pericallis", "Perilla", "Periploca", "Perovskia (now included in Salvia)", "Pernettya (now included in Gaultheria)", "Persea", "Persicaria (fleeceflower, knotweed)", "Petasites (butterbur, sweet coltsfoot)", "Petrea", "Petrocosmea", "Petrophile", "Petrophytum", "Petrorhagia", "Petroselinum (parsley)", "Petteria", "Petunia", "Phacelia", "Phaedranassa (queen lily)", "Phaius (an orchid genus)", "Phalaenopsis (moth orchid)", "Phalaris", "Phebalium", "Phegopteris (beech fern)", "Phellodendron (cork tree)", "Philadelphus (mock orange)", "Philageria (hybrid genus)", "Philesia", "Phillyrea", "Philodendron", "Phlebodium", "Phlomis", "Phlox", "Phoenix (date palm)", "Phormium", "Photinia", "Phragmipedium (an orchid genus)", "Phragmites (reed)", "Phuopsis", "Phygelius", "Phylica (Cape myrtle)", "× Phylliopsis (hybrid genus)", "Phyllocladus (toatoa)", "Phyllodoce", "Phyllostachys", "Phyllothamnus (hybrid genus)", "Physalis (ground cherry)", "Physaria (bladderpod)", "Physocarpus", "Physoplexis", "Physostegia", "Phyteuma", "Phytolacca (pokeweed)", "Picea (spruce)", "Picrasma", "Pieris", "Pilea", "Pileostegia", "Pilosella", "Pilosocereus", "Pimelea", "Pimpinella", "Pinanga", "Pinckneya", "Pinellia", "Pinguicula (butterwort)", "Pinus (pine)", "Piper (pepper)", "Piptanthus", "Pisonia", "Pistacia (pistachio)", "Pistia", "Pitcairnia", "Pithecellobium", "Pittosporum", "Pityrogramma", "Plantago (plantain)", "Platanus (plane tree, sycamore)", "Platycarya", "Platycerium (staghorn fern)", "Platycladus (Chinese arborvitae)", "Platycodon (balloon flower)", "Platystemon (creamcups)", "Plectranthus an orchid genus", "Pleioblastus", "Pleione (an orchid genus)", "Pleiospilos (living granite)", "Pleurothallis (an orchid genus)", "Plumeria (frangipani)", "Poa", "Podalyria", "Podocarpus", "Podophyllum (mayapple)", "Podranea", "Polemonium (jacob's ladder, abscess root)", "Polianthes", "Poliothyrsis", "Polygala (milkwort, seneca, snakeroot)", "Polygonatum", "Polygonum (knotweed, knotgrass)", "Polypodium", "Polyscias", "Polystichum", "Poncirus", "Pongamia", "Pontederia (pickerel weed)", "Populus (aspen, poplar, cottonwood)", "Porana", "Portea", "Portulaca (purslane, moss rose)", "Portulacaria", "Posoqueria", "Potamogeton", "Potentilla (cinquefoil)", "Pothos", "Potinara (hybrid orchid genus)", "Pratia", "Primula (primrose)", "Prinsepia", "Pritchardia", "Proboscidea (unicorn plant)", "Promenaea an orchid genus", "Prosopis (mesquite)", "Prostanthera (mint bush)", "Protea", "Prumnopitys", "Prunella (self-heal)", "Prunus (almond, apricot, cherry, peach, plum)", "Pseuderanthemum", "Pseudocydonia", "Pseudolarix (golden-larch)", "Pseudopanax", "Pseudosasa", "Pseudotsuga (douglas-fir)", "Pseudowintera", "Psilotum", "Psychopsis (butterfly orchid)", "Psylliostachys (statice)", "Ptelea", "Pteris (brake, table fern)", "Pterocactus", "Pterocarya (wingnut)", "Pteroceltis", "Pterocephalus", "Pterodiscus", "Pterostyrax", "Ptilotus", "Ptychosperma", "Pueraria", "Pulmonaria (lungwort)", "Pulsatilla", "Pultenaea", "Punica (pomegranate)", "Purshia", "Puschkinia", "Putoria", "Puya", "Pycnanthemum", "Pycnostachys", "Pyracantha (firethorn)", "Pyrola (wintergreen)", "Pyrostegia", "Pyrrosia", "Pyrus (pear)", "Q", "Contents: ", "Top0–9ABCDEFGHIJKLMNOPQRSTUVWXYZ", "Quamoclit", "Quaqua", "Quercus (oak)", "Quesnelia", "Quisqualis", "Quince", "R", "Contents: ", "Top0–9ABCDEFGHIJKLMNOPQRSTUVWXYZ", "Ramonda", "Ranunculus (buttercup, crowfoot)", "Ranzania", "Raoulia", "Raphia (raffia)", "Ratibida", "Ravenala (traveler's tree)", "Rebutia", "Rehderodendron", "Rehmannia", "Reineckea", "Reinwardtia", "Reseda (Mignonette)", "Retama", "Rhamnus", "Rhaphidophora", "Rhaphiolepis", "Rhapidophyllum (needle palm)", "Rhapis (lady palm)", "Rheum (rhubarb)", "Rhexia", "Rhipsalis", "Rhodanthe (strawflower)", "Rhodanthemum", "Rhodiola", "Rhodochiton", "Rhododendron", "Rhodohypoxis", "Rhodophiala", "Rhodothamnus", "Rhodotypos", "Rhoeo", "Rhoicissus", "Rhombophyllum", "Rhus (sumac)", "Rhynchelytrum", "Rhynchostylis (an orchid genus)", "Ribes (currant)", "Richea", "Ricinus (castor-oil plant)", "Rigidella", "Robinia", "Rodgersia", "Rodriguezia an orchid genus", "Rohdea", "Romanzoffia", "Romneya (Matilija poppy, tree poppy)", "Romulea", "Rondeletia", "Rosa (rose)", "Roscoea", "Rosmarinus (rosemary)", "Rossioglossum an orchid genus", "Rothmannia", "Roystonea (royal palm)", "Rubus (raspberry)", "Rudbeckia (coneflower)", "Ruellia", "Rumex (dock)", "Rumohra", "Rupicapnos", "Ruschia", "Ruscus", "Russelia", "Ruta (rue)", "S", "Contents: ", "Top0–9ABCDEFGHIJKLMNOPQRSTUVWXYZ", "Sabal (palmetto)", "Saccharum (plume grass, sugar cane)", "Sadleria", "Sagina (pearlwort)", "Sagittaria (arrowhead)", "Salix (willow)", "Salpiglossis", "Salvia (sage)", "Salvinia", "Sambucus (elder)", "Sanchezia", "Sandersonia", "Sanguinaria (bloodroot)", "Sanguisorba (burnet)", "Sansevieria", "Santolina", "Sanvitalia (creeping zinnia)", "Sapindus", "Sapium (tallow tree)", "Saponaria (soapwort)", "Sarcocapnos", "Sarcocaulon", "Sarcococca", "Saritaea", "Sarmienta", "Sarracenia (pitcher plant)", "Sasa", "Sassafras", "Satureja (savory)", "Sauromatum", "Saxegothaea", "Saxifraga (saxifrage)", "Scabiosa (scabious plant)", "Scadoxus (blood lily)", "Scaevola", "Schefflera", "Schima", "Schinus", "Schisandra", "Schizachyrium", "Schizanthus", "Schizopetalon", "Schizophragma", "Schizostylis", "Schlumbergera", "Schoenoplectus", "Schomburgkia an orchid genus", "Schotia", "Schwantesia", "Sciadopitys", "Scilla (including the former genus Chionodoxa)", "Scindapsus", "Scirpoides", "Sclerocactus", "Scoliopus", "Scopolia", "Scrophularia (figwort)", "Scutellaria", "Securinega", "Sedum (stonecrop)", "Selaginella", "Selago", "Selenicereus", "Selinum", "Semele", "Semiaquilegia", "Semiarundinaria", "Sempervivum (hens and chicks)", "Senecio (ragwort)", "Senna", "Sequoia (coast redwood)", "Sequoiadendron (giant sequoia)", "Seriphidium", "Serissa", "Serruria", "Sesbania", "Sesleria", "Setaria", "Shepherdia", "Shibataea", "Shortia", "Sibiraea", "Sidalcea", "Sideritis", "Silene (campion)", "Silphium", "Silybum", "Simmondsia (jojoba)", "Sinningia", "Sinofranchetia", "Sinojackia", "Sinowilsonia", "Sisyrinchium", "Skimmia", "Smilacina", "Smilax", "Smithiantha", "Smyrnium", "Sobralia an orchid genus", "Solandra", "Solanum (potato, nightshade)", "Soldanella (snowbell)", "Soleirolia", "Solenopsis", "Solenostemon", "Solidago (goldenrod)", "Solidaster (supposedly hybrid genus; see Solidago)", "Sollya", "Sonerila", "Sophora", "Sophrolaeliocattleya (trigeneric hybrid orchid)", "Sophronitis (an orchid genus)", "Sorbaria", "Sorbus (rowan, whitebeam)", "Sorghastrum", "Sparaxis", "Sparganium (bur-reed)", "Sparrmannia", "Spartina (cord grass)", "Spartium (broom)", "Spathiphyllum", "Spathodea", "Sphaeralcea", "Spigelia", "Spiraea (spirea)", "Sprianthes (an orchid genus)", "Sporobolus", "Sprekelia", "Stachys (betony)", "Stachyurus", "Stangeria", "Stanhopea (an orchid genus)", "Stapelia", "Stapelianthus", "Staphylea (bladdernut)", "Stauntonia", "Stenanthium", "Stenocactus", "Stenocarpus", "Stenocereus", "Stenomesson", "Stenotaphrum", "Stenotus", "Stephanandra", "Stephanocereus", "Stephanotis", "Sternbergia", "Stigmaphyllon", "Stipa", "Stokesia", "Stomatium", "Stratiotes", "Strelitzia (bird of paradise)", "Streptocarpus (Cape primrose)", "Streptosolen", "Strobilanthes", "Stromanthe", "Strombocactus", "Strongylodon", "Stuartia", "Stylidium", "Stylophorum", "Styphelia", "Styrax", "Succisa", "Sulcorebutia", "Sutera", "Sutherlandia", "Swainsona", "Swainsonia", "Syagrus", "Sycoparrotia (hybrid genus)", "Sycopsis", "Symphoricarpos (snowberry)", "Symphyandra", "Symphytum (comfrey)", "Symplocos", "Synadenium", "Syneilesis", "Syngonium", "Synthyris", "Syringa (lilac)", "Syzygium (rose apple)", "T", "Contents: ", "Top0–9ABCDEFGHIJKLMNOPQRSTUVWXYZ", "Tabebuia", "Tabernaemontana", "Tacca", "Tagetes (Mexican or French marigold)", "Talinum (fameflower)", "Tamarix (tamarisk)", "Tanacetum (tansy)", "Tanakaea", "Tapeinochilos", "Taxodium (bald cypress)", "Taxus (yew)", "Tecoma", "Tecomanthe", "Tecomaria", "Tecophilaea", "Telekia", "Telephium", "Tellima", "Telopea (waratah)", "Templetonia", "Terminalia", "Ternstroemia", "Tetracentron", "Tetradium (bee tree)", "Tetranema", "Tetraneuris", "Tetrapanax", "Tetrastigma", "Tetratheca", "Teucrium", "Thalia", "Thalictrum", "Thelesperma", "Thelocactus", "Thelypteris", "Thermopsis", "Thespesia", "Thevetia", "Thlaspi", "Thrinax (thatch palm)", "Thryptomene (heath myrtle)", "Thuja (thuja, arborvitae)", "Thujopsis (hiba)", "Thunbergia", "Thymophylla", "Thymus (thyme)", "Tiarella", "Tibouchina", "Tigridia", "Tilia (linden)", "Tillandsia (air plant, Spanish moss)", "Tipuana", "Titanopsis", "Tithonia (Mexican sunflower)", "Todea", "Tolmiea", "Tolpis", "Toona", "Torenia", "Torreya (nutmeg yew)", "Tovara", "Townsendia", "Trachelium", "Trachelium caeruleum (blue throatwort)", "Trachelospermum", "Trachycarpus (chusan palm)", "Trachymene", "Tradescantia (spiderwort)", "Trapa (water caltrop)", "Trichodiadema", "Trichosanthes", "Tricyrtis (toad lily)", "Trientalis", "Trifolium (clover)", "Trillium", "Tripetaleia", "Tripterygium", "Triteleia (triplet lily)", "Tritonia", "Trochodendron", "Trollius (globeflower)", "Tropaeolum (nasturtium)", "Tsuga (hemlock)", "Tsusiophyllum", "Tuberaria", "Tulbaghia", "Tulipa (tulip)", "Tweedia", "Tylecodon", "Typha (cattail)", "U", "Contents: ", "Top0–9ABCDEFGHIJKLMNOPQRSTUVWXYZ", "Uebelmannia", "Ugni", "Ulex (gorse)", "Ulmus (elm)", "Umbellularia", "Uncinia", "Uniola", "Urceolina", "Urginea", "Ursinia", "Utricularia (bladderwort)", "Uvularia (merrybells, bellwort)", "V", "Contents: ", "Top0–9ABCDEFGHIJKLMNOPQRSTUVWXYZ", "Valeriana (garden valerian)", "Vallea", "Vancouveria", "Vanda (an orchid genus)", "Vanilla an orchid genus", "Veitchia", "Vellozia", "Veltheimia", "Veratrum", "Verbascum (mullein)", "Verbena", "Vernonia (ironweed)", "Veronica (speedwell)", "Veronicastrum", "Verticordia", "Vestia", "Viburnum", "Victoria (giant waterlily)", "Vigna (cowpea and various beans)", "Viguiera", "Vinca (periwinkle)", "Viola (pansy, violet)", "Virgilia", "Viscaria", "Vitaliana", "Vitex", "Vitis (grape)", "Vriesea", "W", "Contents: ", "Top0–9ABCDEFGHIJKLMNOPQRSTUVWXYZ", "Wachendorfia", "Wahlenbergia", "Waldsteinia", "Washingtonia", "Watsonia", "Weberocereus", "Wedelia", "Weigela", "Weingartia", "Weldenia", "Welwitschia", "Westringia", "Widdringtonia", "Wigandia", "Wigginsia", "Wikstroemia", "Wilsonaria (hybrid orchid genus)", "Wisteria", "Wittrockia", "Wolffia", "Woodsia", "Woodwardia (chain fern)", "Worsleya", "Wulfenia", "X", "Contents: ", "Top0–9ABCDEFGHIJKLMNOPQRSTUVWXYZ", "Xanthoceras", "Xanthorhiza", "Xanthosoma", "Xeranthemum", "Xerophyllum", "Xylosma", "Y", "Contents: ", "Top0–9ABCDEFGHIJKLMNOPQRSTUVWXYZ", "Yucca", "Yushania", "Z", "Contents: ", "Top0–9ABCDEFGHIJKLMNOPQRSTUVWXYZ", "Zaluzianskya", "Zamia", "Zamioculcas", "Zantedeschia (calla lily)", "Zanthoxylum", "Zauschneria", "Zea (maize)", "Zelkova", "Zenobia", "Zephyranthes", "Zigadenus", "Zinnia", "Zizania (wild rice)", "Zygopetalum (an orchid genus)", "asparagus", "apples", "avacado", "alfalfa", "acorn squash", "almond", "arugala", "artichoke", "applesauce", "asian noodles", "antelope", "ahi tuna", "albacore tuna", "Apple juice", "Avocado roll", "Bruscetta", "bacon", "black beans", "bagels", "baked beans", "BBQ", "bison", "barley", "beer", "bisque", "bluefish", "bread", "broccoli", "buritto", "babaganoosh", "Cabbage", "cake", "carrots", "carne asada", "celery", "cheese", "chicken", "catfish", "chips", "chocolate", "chowder", "clams", "coffee", "cookies", "corn", "cupcakes", "crab", "curry", "cereal", "chimichanga", "dates", "dips", "duck", "dumplings", "donuts", "eggs", "enchilada", "eggrolls", "English muffins", "edimame", "eel sushi", "fajita", "falafel", "fish", "franks", "fondu", "French toast", "French dip", "Garlic", "ginger", "gnocchi", "goose", "granola", "grapes", "green beans", "Guancamole", "gumbo", "grits", "Graham crackers", "ham", "halibut", "hamburger", "honey", "huenos rancheros", "hash browns", "hot dogs", "haiku roll", "hummus", "ice cream", "Irish stew", "Indian food", "Italian bread", "jambalaya", "jelly", "Jam", "jerky", "jalapeño", "kale", "kabobs", "ketchup", "kiwi", "kidney beans", "kingfish", "lobster", "Lamb", "Linguine", "Lasagna", "Meatballs", "Moose", "Milk", "Milkshake", "Noodles", "Oatmeal", "Pizza", "Pepperoni", "Porter", "Pancakes", "Quesadilla", "Quiche", "Reuben", "Spinach", "Spaghetti", "Tater tots", "Toast", "Venison", "Waffles", "Wine", "Walnuts", "Yogurt", "Ziti", "Zucchini"];
+var items = item[Math.floor(Math.random()*item.length)];
+document.getElementById("before_search").value = items;
+}
+
+var button = document.getElementById("top");
+window.onscroll = function() {scrollFunction()};
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    button.style.display = "block";
+  } else {
+    button.style.display = "none";
+  }
+}
+function scrollToTop() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+function imFeelingLucky() {
+  var lucky = document.getElementById("before_search").value;
+  window.location.assign("https://en.wikipedia.org/wiki/" + lucky);
+}
+    function micType() {
+		var speech = true;
+		window.SpeechRecognition = window.SpeechRecognition
+						|| window.webkitSpeechRecognition;
+
+		const recognition = new SpeechRecognition();
+		recognition.interimResults = true;
+
+		recognition.addEventListener('result', e => {
+			const transcript = Array.from(e.results)
+				.map(result => result[0])
+				.map(result => result.transcript)
+				.join('')
+
+			document.getElementById("before_search").value = transcript;
+		});
+		
+		if (speech == true) {
+			recognition.start();
+			recognition.addEventListener('end', recognition.start);
+		}
+     }  
+
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+document.getElementById("defaultOpen").click();  
+    </script>
+</body>
+</html>  

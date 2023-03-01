@@ -106,10 +106,10 @@ function check_student_eligibility($conn)
     $conn->close();
 }
 
-function hashconst($salt, $institutionName, $acronym, $category, $type, $yearlyKey, $agentsKey, $year, $studentId, $studentName, $course, $gpa)
+function hashconst($data)
 {
-    $data = $institutionName . $acronym . $category . $type . $yearlyKey . $agentsKey . $year . $studentId . $studentName . $course . $gpa;
-    $data = $salt . $data;
+    // $data = $institutionName . $acronym . $category . $type . $yearlyKey . $agentsKey . $year . $studentId . $studentName . $course . $gpa;
+    // $data = $salt . $data;
     $hash = hash('sha256', $data);
     return $hash;
 }
@@ -136,41 +136,85 @@ function getCurrentYearNairobi() {
     return date('Y'); // Get the current year
 }
 
-$salt = "random_salt_value";
-$institutionName = "University of Technology";
-$acronym = "UT";
-$category = "public";
-$type = "university";
-$yearlyKey = "2020-2021";
-$agentsKey = "agent123";
-$year = 2021;
-$studentId = 1234567;
-$studentName = "John Doe";
-$course = "Computer Science";
-$gpa = 3.5;
 
-$hash = hashconst($salt, $institutionName, $acronym, $category, $type, $yearlyKey, $agentsKey, $year, $studentId, $studentName, $course, $gpa);
-echo $hash;
-echo "</br>";
 
-$salt = "random_salt_value";
-$institutionName = "University of Technology";
-$acronym = "UT";
-$category = "public";
-$type = "university";
-$yearlyKey = "2020-2021";
-$agentsKey = "agent123";
-$year = 2021;
-$studentId = 1234567;
-$studentName = "John Doe";
-$course = "Computer Science";
-$gpa = 3.5;
+function generateCertificate($student_id, $string, $conn) {
+    
+    // Retrieve user info based on student_id
+    // echo $student_id."</br>";
+    $sql = "SELECT name, GPA, course FROM student_info WHERE student_id = '$student_id'";
+    $result = mysqli_query($conn, $sql);
 
-$data = $salt . $institutionName . $acronym . $category . $type . $yearlyKey . $agentsKey . $year . $studentId . $studentName . $course . $gpa;
-echo $hash2 = hashconst($salt, $institutionName, $acronym, $category, $type, $yearlyKey, $agentsKey, $year, $studentId, $studentName, $course, $gpa);
+    if (!$result) {
+        die("Error executing query: " . mysqli_error($conn));
+    }
+    
+    // Check if user exists
+    if (mysqli_num_rows($result) == 0) {
+        echo "User not found";
+        return;
+    }
+    
+    // Fetch user info
+    $row = mysqli_fetch_assoc($result);
+    $name = $row["name"];
+    $gpa = $row["GPA"];
+    $course = $row["course"];
 
-if ($hash === $hash2) {
-    echo "The data matches the hash";
-} else {
-    echo "The data does not match the hash";
+    $string = $string.$student_id.$name.$course.$gpa;
+    
+    // Generate hash
+    $hash = hashconst($string);
+    
+    // Get current year
+    $year = date("Y");
+    
+    // Insert data into certificates table
+    $sql = "INSERT INTO certificates (name, gpa, course, hash, year, studentid) VALUES ('$name', '$gpa', '$course', '$hash', '$year', '$student_id')";
+    if (mysqli_query($conn, $sql)) {
+        echo "Certificate generated successfully";
+    } else {
+        echo "Error generating certificate: " . mysqli_error($conn);
+    }
+    
+    // Close database connection
 }
+
+// $salt = "random_salt_value";
+// $institutionName = "University of Technology";
+// $acronym = "UT";
+// $category = "public";
+// $type = "university";
+// $yearlyKey = "2020-2021";
+// $agentsKey = "agent123";
+// $year = 2021;
+// $studentId = 1234567;
+// $studentName = "John Doe";
+// $course = "Computer Science";
+// $gpa = 3.5;
+
+// $hash = hashconst($salt, $institutionName, $acronym, $category, $type, $yearlyKey, $agentsKey, $year, $studentId, $studentName, $course, $gpa);
+// echo $hash;
+// echo "</br>";
+
+// $salt = "random_salt_value";
+// $institutionName = "University of Technology";
+// $acronym = "UT";
+// $category = "public";
+// $type = "university";
+// $yearlyKey = "2020-2021";
+// $agentsKey = "agent123";
+// $year = 2021;
+// $studentId = 1234567;
+// $studentName = "John Doe";
+// $course = "Computer Science";
+// $gpa = 3.5;
+
+// $data = $salt . $institutionName . $acronym . $category . $type . $yearlyKey . $agentsKey . $year . $studentId . $studentName . $course . $gpa;
+// echo $hash2 = hashconst($salt, $institutionName, $acronym, $category, $type, $yearlyKey, $agentsKey, $year, $studentId, $studentName, $course, $gpa);
+
+// if ($hash === $hash2) {
+//     echo "The data matches the hash";
+// } else {
+//     echo "The data does not match the hash";
+// }
