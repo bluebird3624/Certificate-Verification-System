@@ -1,0 +1,59 @@
+body { font-family: arial, helvetica; font-size: 14px; padding-top: 40px; }
+
+h2 {
+    padding: 0px;
+    margin: 0px;
+}
+
+#searchtools {
+    color: white;
+    background-color: gray;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 10px;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+.input-radio { color: black; }
+
+.input-textbox {
+    width: 70%;
+    padding: 7px;
+    border: 1px solid black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2em;
+    font-weight: bold; 
+    margin: 2px;
+    border-radius: 5px; 
+}
+
+#resultTable {
+    margin: 0 auto;
+    border: 1px solid gray;
+    width: 90%;
+	/* max-width: 500px; */
+}
+
+#resultTable th {
+	 text-transform: capitalize;
+  font-size: 1.6em;
+  font-weight: bold;
+    text-align: left;
+    background-color: black;
+    color: white;
+    padding: 8px;
+    font-weight: normal;
+    letter-spacing: -.04em;
+}
+
+#resultTable td {
+    border-bottom: 1px solid silver;
+    padding: 10px;
+}
+
+#resultTable tr:hover {
+    background-color: silver;
+    color: blue;
+}
