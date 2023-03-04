@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="css/navbarr.css">
+<div class= "space"></div>
 <div class="nav">
 
   		<input type="checkbox" id="nav-check">

@@ -1,3 +1,25 @@
+<?php
+require "includes/connect.php";
+
+	$result = mysqli_query($conn,"SELECT * FROM school_info limit 1");
+	$num = mysqli_num_rows ( $result );
+
+	if($num >0)
+	{
+		$row = mysqli_fetch_assoc($result);
+		$id = $row['id'];
+		$instname = $row['institution_name'];
+		$acronym = $row['acronym'];
+		$category = $row['category'];
+		$type = $row['type'];
+		$salt = $row['salt'];
+		$ykey = $row['yearly_key'];
+		$year = $row['year'];
+		$agentskey = $row['agents_key'];
+	}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +39,6 @@
 		session_start();
 		if($_SESSION['logged_in'])
 		{
-			
 	?>
 <form action="schooldata.php" method="post">
 <ul role="list">
