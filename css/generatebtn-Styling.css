@@ -1,0 +1,158 @@
+.button_wrapper {
+    margin-top: 2em;
+    margin-left: 15em;
+    margin-bottom: 2em;
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: 22rem;
+	height: 5rem;
+	border-radius: 10rem;
+	background-color: black;
+	font-size: 2rem;
+	color: white;
+	display: flex;
+	border: 6px solid black;
+	letter-spacing: 0.25em;
+	font-weight: 200;
+	overflow: hidden;
+	box-shadow: 0 5px 10px 1px rgba(0, 0, 0, 0.25);
+	user-select: none;
+	cursor: pointer;
+	transition: 300ms;
+}
+
+.button_wrapper:hover {
+	transform: scale(110%);
+}
+
+.button_wrapper::before {
+	content: "GENERATING...";
+    font-size: 14px;
+	position: absolute;
+	background-color: white;
+	height: 5rem;
+	width: 5rem; /* 22REM */
+	color: black;
+	display: flex;
+	border-radius: 10rem;
+	align-items: center;
+	overflow: hidden;
+	padding-left: 2rem;
+	box-sizing: border-box;
+}
+
+.loading.button_wrapper::before {
+	animation: reveal 1s ease-in-out 300ms forwards;
+}
+.done.button_wrapper::before {
+	right: 0;
+	width: 22rem;
+	animation: hideLoad 1s ease-in-out 50ms forwards;
+}
+
+.icon {
+	position: absolute;
+	display: flex;
+	overflow: hidden;
+	width: 5rem;
+	height: 5rem;
+	border-radius: 100%;
+	background-color: white;
+	color: black;
+}
+
+.icon > svg {
+	padding: 1.5rem;
+	transition: 300ms;
+}
+
+.loading.button_wrapper > .icon {
+	animation: loadIcon 1s ease-in-out 300ms forwards;
+}
+
+.loading.button_wrapper > .icon > svg {
+	transform: rotatez(-90deg);
+}
+
+.button_wrapper::after {
+	content: "GENERATE";
+	height: 100%;
+	width: 22rem;
+	border-radius: 10rem;
+	display: flex;
+	align-items: center;
+	padding-left: 6rem;
+    font-size: 20px;
+}
+
+.done.button_wrapper::after {
+	content: "DONE";
+	padding-left: 2.5rem;
+}
+
+.reset.hidden {
+	transform: translatey(-50rem);
+	transition: 500ms;
+	transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.reset {
+	position: fixed;
+	top: 0;
+	margin-top: 2rem;
+	padding: 1rem;
+	background-color: #20202022;
+	border-radius: 5rem;
+	color: black;
+	font-weight: 500;
+	font-size: 1.1rem;
+	letter-spacing: 0.125em;
+	transform: translatey(0);
+	transition: 500ms;
+	transition-delay: 1s;
+	user-select: none;
+	cursor: pointer;
+}
+
+@keyframes loadIcon {
+	from {
+		transform: translatex(0);
+	}
+	to {
+		transform: translatex(17rem);
+	}
+}
+
+@keyframes reveal {
+	0% {
+		width: 5rem;
+	}
+
+	99.99% {
+		left: 0;
+	}
+	100% {
+		left: unset;
+		right: 0;
+		width: 22rem;
+	}
+}
+
+@keyframes hideLoad {
+	0% {
+		width: 22rem;
+	}
+	100% {
+		width: 5rem;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.button_wrapper {
+		transform: scale(80%);
+	}
+
+	.button_wrapper:hover {
+		transform: scale(90%);
+	}
+}

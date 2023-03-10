@@ -116,6 +116,7 @@ function hashconst($data)
 
 function hashkey($salt, $institutionName, $acronym, $category, $type, $yearlyKey, $agentsKey, $year, $studentId, $studentName, $course, $gpa)
 {
+    $separator = "-";//add between variables
     $data = $institutionName . $acronym . $category . $type . $yearlyKey . $agentsKey . $year . $studentId . $studentName . $course . $gpa;
     $data = $salt . $data;
     $hash = password_hash($data, PASSWORD_BCRYPT);
@@ -172,7 +173,7 @@ function generateCertificate($student_id, $string, $conn) {
     // Insert data into certificates table
     $sql = "INSERT INTO certificates (name, gpa, course, hash, year, studentid) VALUES ('$name', '$gpa', '$course', '$hash', '$year', '$student_id')";
     if (mysqli_query($conn, $sql)) {
-        echo "Certificate generated successfully";
+        // echo "Certificate generated successfully";
     } else {
         echo "Error generating certificate: " . mysqli_error($conn);
     }
@@ -218,3 +219,10 @@ function generateCertificate($student_id, $string, $conn) {
 // } else {
 //     echo "The data does not match the hash";
 // }
+
+function test()
+{
+    echo "<script>
+        console.log('hello');
+    </script>";
+}
