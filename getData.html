@@ -30,23 +30,47 @@
 
     //setDefaults 
     web3.eth.sendTransaction({
-        from: '0x1e0c11d18346ca1a0cd01CF39E6F4324690c5d78'
+        from: '0x683A7ef7EECe97EE110fB738465FfBa1039c63a8'
     })
 
 
     // Set the address of the contract and its ABI
 
-  const contractAddress = '0x7CAD2e48F0cC2aCfeBE269277FEF9F88FB198F91';
+  const contractAddress = '0x3fD8aF995A8722Bb2b50df06D56Ee8aDB9D5134A';
 
   const contractABI =[
 			{
-				"inputs": [],
-				"name": "getName",
-				"outputs": [
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_studentId",
+						"type": "uint256"
+					},
 					{
 						"internalType": "string",
-						"name": "",
+						"name": "_verificationHash",
 						"type": "string"
+					}
+				],
+				"name": "addStudent",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_verificationHash",
+						"type": "string"
+					}
+				],
+				"name": "getStudent",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -56,13 +80,19 @@
 				"inputs": [
 					{
 						"internalType": "string",
-						"name": "newName",
+						"name": "",
 						"type": "string"
 					}
 				],
-				"name": "setName",
-				"outputs": [],
-				"stateMutability": "nonpayable",
+				"name": "hashToStudent",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			}
 		];
@@ -71,25 +101,25 @@
   const contract = new web3.eth.Contract(contractABI, contractAddress);
   // Call a function on the contract to get the value
   function getName(){
-    contract.methods.getName().call()
+    const dataInput = document.getElementById('dataInput').value;
+    contract.methods.getStudent(dataInput).call()
       .then(value =>document.getElementById('message').textContent = value)
       .then(value => console.log(`Value: ${value}`))
       .catch(err => console.error(err));
-
-    document.getElementById('message').textContent = value;
+      document.getElementById('message').textContent = value;
   }
 
-    function uploadName() {
-        const dataInput = document.getElementById('dataInput').value;
+    // function uploadName() {
+    //     const dataInput = document.getElementById('dataInput').value;
 
-        contract.methods.setName(dataInput).send({ from: "0x1e0c11d18346ca1a0cd01CF39E6F4324690c5d78" })
-        .then((receipt) => {
-        console.log('Transaction receipt:', receipt);
-        })
-        .catch((error) => {
-        console.error('Transaction error:', error);
-        });
-    }
+    //     contract.methods.setName(dataInput).send({ from: "0x1e0c11d18346ca1a0cd01CF39E6F4324690c5d78" })
+    //     .then((receipt) => {
+    //     console.log('Transaction receipt:', receipt);
+    //     })
+    //     .catch((error) => {
+    //     console.error('Transaction error:', error);
+    //     });
+    // }
 
 
 </script>

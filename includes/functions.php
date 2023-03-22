@@ -54,27 +54,74 @@ function hash_password($password) {
     return password_hash($password, PASSWORD_DEFAULT);
 }
 
+// function encrypting($variable)
+// {
+//     $ciphering = "AES-128-CTR";
+//     $iv_lenth = openssl_cipher_iv_length($ciphering);
+//     $options = 0;
+//     $encryption_vi = "1234567891011121";
+//     $encryption_key = "ElgonviewCollage";
+
+//     return $encryption = openssl_encrypt($variable,$ciphering,$encryption_key,$options,$encryption_vi);
+// }
+
 function encrypting($variable)
 {
-    $ciphering = "AES-128-CTR";
-    $iv_lenth = openssl_cipher_iv_length($ciphering);
-    $options = 0;
-    $encryption_vi = "1234567891011121";
+    // Compress the data using gzip
     $encryption_key = "ElgonviewCollage";
+    $compressed_data = gzcompress($variable);
 
-    return $encryption = openssl_encrypt($variable,$ciphering,$encryption_key,$options,$encryption_vi);
-}
-
-function decrypting($variable)
-{
+    // Encrypt the compressed data using AES-128-CTR
     $ciphering = "AES-128-CTR";
-    $iv_lenth = openssl_cipher_iv_length($ciphering);
+    $iv_length = openssl_cipher_iv_length($ciphering);
     $options = 0;
-    $decryption_vi = "1234567891011121";
-    $decryption_key = "ElgonviewCollage";
+    $encryption_iv = openssl_random_pseudo_bytes($iv_length);
 
-    return $decryption = openssl_decrypt($variable,$ciphering,$decryption_key,$options,$decryption_vi);
+    $encrypted_data = openssl_encrypt($compressed_data, $ciphering, $encryption_key, $options, $encryption_iv);
+
+    // Concatenate the encryption IV and the encrypted data
+    $output = $encryption_iv . $encrypted_data;
+
+    // Base64 encode the output to make it shorter
+    $output = base64_encode($output);
+
+    return $output;
 }
+
+
+// function decrypting($variable)
+// {
+//     $ciphering = "AES-128-CTR";
+//     $iv_lenth = openssl_cipher_iv_length($ciphering);
+//     $options = 0;
+//     $decryption_vi = "1234567891011121";
+//     $decryption_key = "ElgonviewCollage";
+
+//     return $decryption = openssl_decrypt($variable,$ciphering,$decryption_key,$options,$decryption_vi);
+// }
+
+function decrypting($encrypted)
+{
+    // Base64 decode the input
+    $encryption_key = "ElgonviewCollage";
+    $input = base64_decode($encrypted);
+    // Extract the encryption IV and the encrypted data
+    $iv_length = openssl_cipher_iv_length("AES-128-CTR");
+    $encryption_iv = substr($input, 0, $iv_length);
+    $encrypted_data = substr($input, $iv_length);
+
+    // Decrypt the encrypted data using AES-128-CTR
+    $ciphering = "AES-128-CTR";
+    $options = 0;
+
+    $decrypted_data = openssl_decrypt($encrypted_data, $ciphering, $encryption_key, $options, $encryption_iv);
+
+    // Decompress the decrypted data using gzip
+    $decompressed_data = gzuncompress($decrypted_data);
+
+    return $decompressed_data;
+}
+
 
 
 function check_system_time() {
@@ -139,47 +186,59 @@ function getCurrentYearNairobi() {
 
 
 
-function generateCertificate($student_id, $string, $conn) {
+// function generateCertificate($student_id, $string, $conn) {
     
-    // Retrieve user info based on student_id
-    // echo $student_id."</br>";
-    $sql = "SELECT name, GPA, course FROM student_info WHERE student_id = '$student_id'";
-    $result = mysqli_query($conn, $sql);
+//     // Retrieve user info based on student_id
+//     // echo $student_id."</br>";
+//     $sql = "SELECT name, GPA, course FROM student_info WHERE student_id = '$student_id'";
+//     $result = mysqli_query($conn, $sql);
 
-    if (!$result) {
-        die("Error executing query: " . mysqli_error($conn));
-    }
+//     if (!$result) {
+//         die("Error executing query: " . mysqli_error($conn));
+//     }
     
-    // Check if user exists
-    if (mysqli_num_rows($result) == 0) {
-        echo "User not found";
-        return;
-    }
+//     // Check if user exists
+//     if (mysqli_num_rows($result) == 0) {
+//         echo "User not found";
+//         return;
+//     }
     
-    // Fetch user info
-    $row = mysqli_fetch_assoc($result);
-    $name = $row["name"];
-    $gpa = $row["GPA"];
-    $course = $row["course"];
+//     // Fetch user info
+//     $row = mysqli_fetch_assoc($result);
+//     $name = $row["name"];
+//     $gpa = $row["GPA"];
+//     $course = $row["course"];
+//     $year = date("Y");
 
-    $string = $string.$student_id.$name.$course.$gpa;
+//     $string = $string.$student_id.$name.$course.$gpa.$year;
     
-    // Generate hash
-    $hash = hashconst($string);
+//     // Generate hash
+//     $hash = hashconst($string);
     
-    // Get current year
-    $year = date("Y");
+//     // Get current year
     
-    // Insert data into certificates table
-    $sql = "INSERT INTO certificates (name, gpa, course, hash, year, studentid) VALUES ('$name', '$gpa', '$course', '$hash', '$year', '$student_id')";
-    if (mysqli_query($conn, $sql)) {
-        // echo "Certificate generated successfully";
-    } else {
-        echo "Error generating certificate: " . mysqli_error($conn);
-    }
     
-    // Close database connection
-}
+//     // Insert data into certificates table
+//     $sql = "INSERT INTO certificates (name, gpa, course, hash, year, studentid) VALUES ('$name', '$gpa', '$course', '$hash', '$year', '$student_id')";
+//     if (mysqli_query($conn, $sql)) {
+//         // include "./solidity.php";
+//         // include_once "./solidity.php";
+//         echo "
+//             <script>
+//                 var id = $student_id;
+//                 var hash = $student_id;
+//                 uploadName(id,hash);
+//             </script>
+//         ";
+//     } else {
+//         echo "Error generating certificate: " . mysqli_error($conn);
+//     }
+    
+//     // Close database connection
+// }
+
+// require "connect.php";
+// generateCertificate("1025", "testtest", $conn);
 
 // $salt = "random_salt_value";
 // $institutionName = "University of Technology";
@@ -220,9 +279,9 @@ function generateCertificate($student_id, $string, $conn) {
 //     echo "The data does not match the hash";
 // }
 
-function test()
-{
-    echo "<script>
-        console.log('hello');
-    </script>";
-}
+// function test()
+// {
+//     echo "<script>
+//         console.log('hello');
+//     </script>";
+// }

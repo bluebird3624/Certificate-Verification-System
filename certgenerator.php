@@ -8,7 +8,7 @@ $qualified = check_student_eligibility($conn);
 
 foreach($qualified as $id)
 {
-    // generateCertificate($id, $string, $conn);
+    generateCertificate($id, $string, $conn);
 }
 
 $message = json_encode(array('state' => 'done'));

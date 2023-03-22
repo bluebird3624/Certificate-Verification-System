@@ -1,19 +1,19 @@
 const buttonWrapper = document.querySelector(".button_wrapper");
 const reset = document.querySelector(".reset");
-
+console.log("starting script");
 buttonWrapper.addEventListener("click", () => {
 	if (!buttonWrapper.classList.contains("loading")) {
 		buttonWrapper.classList.add("loading");
-
+        console.log("starting XML");
         const xhr = new XMLHttpRequest();
-        xhr.open('GET', 'certgenerator.php');
+        xhr.open('GET', 'addData.php');
+        console.log("loading uploadData");
         xhr.onload = function() {
         if (xhr.status === 200) {
             // do something with the response
-            var res=JSON.parse(xhr.responseText);
-            if(res = "done")
+
+            if(xhr.readyState === 4)
             {
-                console.log(res);
                 buttonWrapper.classList.add("done");
 			    reset.classList.remove("hidden");
 

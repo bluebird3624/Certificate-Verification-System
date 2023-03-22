@@ -8,6 +8,7 @@ if(isset($_POST['submit']))
     $Acronym = $_POST['acronym'];
     $Category = $_POST['category'];
     $type = $_POST['type'];
+    
     $salt = $_POST['salt'];
     $yearlyKey = $_POST['yearlykey'];
     $agentsKey = $_POST['agentskey'];

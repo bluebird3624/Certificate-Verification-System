@@ -57,7 +57,7 @@
 	for($i=0; $row = mysqli_fetch_assoc($result); $i++){
 ?>
 	<tr>
-        <td><?php echo $row['name']; ?></td>
+    <td><?php echo $row['name']; ?></td>
 		<td><?php echo $row['student_id']; ?></td>
 		<td><?php echo $row['course']; ?></td>
 		<td><?php echo $row['GPA']; ?></td>
